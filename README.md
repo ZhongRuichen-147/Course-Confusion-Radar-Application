@@ -20,7 +20,30 @@ The application will help students improve time management, reduce missed deadli
 - To create a scalable application that can be improved with more features in future development stages.
 
 ## 3. Features
+### Task Management
+- Users can add new academic tasks.
+- Users can edit existing task details.
+- Users can delete tasks that are no longer needed.
+- Users can mark tasks as completed or incomplete.
 
+### Task Details
+- Task title
+- Task description
+- Due date
+- Priority level
+- Task status
+- Subject or category
+
+### Task Organisation
+- Users can view all tasks in one organised list.
+- Users can filter tasks by completion status.
+- Users can sort tasks by due date or priority.
+- Users can identify urgent or high-priority tasks more easily.
+
+### Future Improvements
+- User login and personal accounts.
+- Calendar view.
+- Reminder notifications.
 
 ## 4. Technology Stack
 
