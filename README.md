@@ -1,10 +1,13 @@
 # Course Confusion Radar Application
 
-GITHUB Link: https://github.com/ZhongRuichen-147/Course-Confusion-Radar-Application.git
+## GITHUB Link
+https://github.com/ZhongRuichen-147/Course-Confusion-Radar-Application.git
 
-Student Name: Zhong Ruichen
+## Student Name
+Zhong Ruichen
 
-Project Role(s): Developer, Designer, Project Manager, Tester
+## Project Role(s)
+Developer, Designer, Project Manager, Tester
 
 ---
 
