@@ -4,7 +4,7 @@
 Course Confusion Radar Application
 
 ## GitHub Link
-
+https://github.com/ZhongRuichen-147/Course-Confusion-Radar-Application.git
 
 ## Student Name
 Zhong Ruichen
