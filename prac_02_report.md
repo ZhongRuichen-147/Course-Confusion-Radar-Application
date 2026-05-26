@@ -39,3 +39,18 @@ The interview focused on students’ learning difficulties, their willingness to
 The collected feedback was then converted into software requirements and user stories.
 
 ---
+
+## 4. Interview Questions
+
+The following questions were used during the interview:
+
+1. Do you sometimes feel confused about course topics after lectures or practical sessions?
+2. Do you feel comfortable asking questions in class? Why or why not?
+3. Would anonymous confusion reporting make it easier for you to ask questions?
+4. Would you like to see whether other students are confused about the same topic?
+5. Would voting “I’m confused too” be useful?
+6. What information should students see in the system?
+7. What information should lecturers see in the dashboard?
+8. Are there any privacy concerns when submitting confusion reports?
+
+---
