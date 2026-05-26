@@ -4,7 +4,7 @@ GITHUB Link:
 
 Student Name: Zhong Ruichen
 
-Project Role(s): Developer, Designer, Project Manager, Teater
+Project Role(s): Developer, Designer, Project Manager, Tester
 
 ---
 
@@ -48,7 +48,7 @@ The project will use the following technology stack:
 
 This technology stack is suitable for an individual project because it allows the application to store and manage data without building a complex backend server.
 
-## 5. Data and Privary
+## 5. Data and Privacy
 The Course Confusion Radar Application will not collect sensitive personal information from students. Confusion reports will be submitted anonymously to encourage honest feedback and reduce the pressure of asking questions. The system will only store basic information required for the platform, such as the course topic, confusion description, number of votes, report status, and created date. Student identity will not be required when submitting a confusion report. This approach helps protect student privacy while allowing lecturers to identify common learning difficulties effectively.
 
 ## 6. Initial Backlog Ideas
@@ -72,3 +72,5 @@ The Course Confusion Radar Application will not collect sensitive personal infor
 9. As an admin, I want to add and manage course topics so that confusion reports can be organized properly.
 
 10. As a user, I want to filter confusion reports by topic so that I can find relevant issues quickly.
+
+
