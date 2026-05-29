@@ -54,3 +54,22 @@ The following questions were used during the interview:
 8. Are there any privacy concerns when submitting confusion reports?
 
 ---
+
+## 6. Requirements Identified
+
+| Requirement | Description |
+|---|---|
+| Anonymous report submission | Students should be able to submit confusion reports without providing their identity. |
+| Course topic selection | Students should be able to select a course topic when submitting a report. |
+| View existing reports | Students should be able to view confusion reports submitted by other students. |
+| Vote on reports | Students should be able to vote “I’m confused too” on reports with similar problems. |
+| Report status tracking | Students should be able to see whether a report is pending, explained, or resolved. |
+| Lecturer dashboard | Lecturers should be able to view the most confusing topics. |
+| Sort reports by votes | Lecturers should be able to sort reports based on the number of votes. |
+| Mark reports as resolved | Lecturers should be able to mark reports as resolved after addressing them. |
+| Manage course topics | Admin users should be able to add and manage course topics. |
+| Filter reports by topic | Users should be able to filter confusion reports by course topic. |
+| Privacy protection | The system should not collect sensitive personal information from students. |
+
+---
+
