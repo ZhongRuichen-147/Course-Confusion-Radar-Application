@@ -76,4 +76,31 @@ The Course Confusion Radar Application will not collect sensitive personal infor
 
 10. As a user, I want to filter confusion reports by topic so that I can find relevant issues quickly.
 
+---
 
+## 7. User Stories
+
+In this report, priority 10 represents the highest priority and priority 50 represents the lowest priority.
+
+| Title | Short Description | Priority | Effort |
+|---|---|---:|---:|
+| Submit Anonymous Confusion Report | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed. | 10 | 2 days |
+| Select Course Topic | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. | 10 | 1 day |
+| View Existing Confusion Reports | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems. | 20 | 2 days |
+| Vote “I’m Confused Too” | As a student, I want to vote “I’m confused too” on an existing report so that common learning difficulties can be identified. | 10 | 2 days |
+| View Report Status | As a student, I want to see the status of a confusion report so that I know whether it is pending, explained, or resolved. | 20 | 1 day |
+| Lecturer Dashboard | As a lecturer, I want to view the most confusing topics so that I can understand which areas need more explanation. | 10 | 3 days |
+| Sort Reports by Votes | As a lecturer, I want to sort confusion reports by number of votes so that I can prioritize the most common problems. | 20 | 1 day |
+| Mark Report as Resolved | As a lecturer, I want to mark a confusion report as resolved so that students know the issue has been addressed. | 20 | 1 day |
+| Manage Course Topics | As an admin, I want to add and manage course topics so that confusion reports can be organized properly. | 30 | 2 days |
+| Filter Reports by Topic | As a user, I want to filter confusion reports by topic so that I can find relevant issues quickly. | 30 | 1 day |
+
+---
+
+## 8. Conclusion
+
+In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application.
+
+The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties.
+
+The collected requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days. These user stories will guide the next stage of the project development.
