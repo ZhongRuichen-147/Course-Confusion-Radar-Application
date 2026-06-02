@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #222;
+}
+
+header {
+    background-color: #1f3c88;
+    color: white;
+    text-align: center;
+    padding: 32px 16px;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+main {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.card {
+    background-color: white;
+    padding: 24px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cfd8dc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 16px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #1f3c88;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.secondary-button {
+    background-color: #607d8b;
+    margin-top: 0;
+}
+
+.message {
+    color: #1b5e20;
+    font-weight: bold;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.report {
+    border: 1px solid #d9e2ec;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+    background-color: #fafafa;
+}
+
+.report h3 {
+    margin: 0 0 8px;
+}
+
+.report-meta {
+    color: #555;
+    font-size: 14px;
+}
+
+.empty-message {
+    color: #777;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    padding: 24px;
+}
