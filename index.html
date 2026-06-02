@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Confusion Radar Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Course Confusion Radar</h1>
+        <p>Anonymous confusion reporting for students</p>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Submit a Confusion Report</h2>
+
+            <form id="reportForm">
+                <label for="topic">Course Topic</label>
+                <select id="topic" required>
+                    <option value="">Select a topic</option>
+                    <option value="Requirements">Requirements</option>
+                    <option value="User Stories">User Stories</option>
+                    <option value="Agile Iteration">Agile Iteration</option>
+                    <option value="Testing">Testing</option>
+                    <option value="GitHub">GitHub</option>
+                </select>
+
+                <label for="description">What is confusing?</label>
+                <textarea 
+                    id="description" 
+                    rows="4" 
+                    placeholder="Describe the topic or concept that confused you..."
+                    required
+                ></textarea>
+
+                <button type="submit">Submit Anonymously</button>
+            </form>
+
+            <p id="message" class="message"></p>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <h2>Existing Confusion Reports</h2>
+                <button id="clearReports" class="secondary-button" type="button">Clear Demo Data</button>
+            </div>
+
+            <div id="reportsList"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Iteration 1 prototype - data is stored locally for testing.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
