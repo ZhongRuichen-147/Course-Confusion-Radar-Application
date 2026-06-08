@@ -1,5 +1,33 @@
-const STORAGE_KEY = "confusionReports";
+// Firebase v10 modular SDK (loaded from CDN)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    updateDoc,
+    deleteDoc,
+    increment,
+    query,
+    orderBy,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+const firebaseConfig = {
+    apiKey: "AIzaSyBiNSiWJZP4cKI2GzU9wINxUAzmU9Oi6BM",
+    authDomain: "cp3407-800c5.firebaseapp.com",
+    projectId: "cp3407-800c5",
+    storageBucket: "cp3407-800c5.firebasestorage.app",
+    messagingSenderId: "616101845581",
+    appId: "1:616101845581:web:8281f5a292e8c436525a04"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const reportsCollection = collection(db, "reports");
+
+// DOM elements
 const reportForm = document.getElementById("reportForm");
 const topicInput = document.getElementById("topic");
 const descriptionInput = document.getElementById("description");
@@ -7,32 +35,17 @@ const reportsList = document.getElementById("reportsList");
 const message = document.getElementById("message");
 const clearReportsButton = document.getElementById("clearReports");
 
-function getReports() {
-    const savedReports = localStorage.getItem(STORAGE_KEY);
-
-    if (savedReports === null) {
-        return [];
-    }
-
-    return JSON.parse(savedReports);
+async function getReports() {
+    const q = query(reportsCollection, orderBy("createdAt", "desc"));
+    const snapshot = await getDocs(q);
+    const reports = [];
+    snapshot.forEach((d) => {
+        reports.push({ id: d.id, ...d.data() });
+    });
+    return reports;
 }
 
-function saveReports(reports) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(reports));
-}
-
-function createReport(topic, description) {
-    return {
-        id: Date.now(),
-        topic: topic,
-        description: description,
-        votes: 0,
-        status: "Pending",
-        createdAt: new Date().toISOString().split("T")[0]
-    };
-}
-
-function submitReport(event) {
+async function submitReport(event) {
     event.preventDefault();
 
     const topic = topicInput.value;
@@ -43,39 +56,57 @@ function submitReport(event) {
         return;
     }
 
-    const reports = getReports();
-    const newReport = createReport(topic, description);
-
-    reports.unshift(newReport);
-    saveReports(reports);
-
-    reportForm.reset();
-    message.textContent = "Your confusion report was submitted anonymously.";
-
-    renderReports();
-}
-
-function voteForReport(reportId) {
-    const reports = getReports();
-
-    for (let i = 0; i < reports.length; i++) {
-        if (reports[i].id === reportId) {
-            reports[i].votes += 1;
-        }
+    try {
+        await addDoc(reportsCollection, {
+            topic: topic,
+            description: description,
+            votes: 0,
+            status: "Pending",
+            createdAt: serverTimestamp()
+        });
+        reportForm.reset();
+        message.textContent = "Your confusion report was submitted anonymously.";
+        await renderReports();
+    } catch (error) {
+        console.error("Error submitting report:", error);
+        message.textContent = "Could not submit the report. Please try again.";
     }
-
-    saveReports(reports);
-    renderReports();
 }
 
-function clearReports() {
-    localStorage.removeItem(STORAGE_KEY);
-    message.textContent = "Demo reports have been cleared.";
-    renderReports();
+async function voteForReport(reportId) {
+    try {
+        const reportRef = doc(db, "reports", reportId);
+        await updateDoc(reportRef, { votes: increment(1) });
+        await renderReports();
+    } catch (error) {
+        console.error("Error voting:", error);
+    }
 }
 
-function renderReports() {
-    const reports = getReports();
+async function clearReports() {
+    try {
+        const snapshot = await getDocs(reportsCollection);
+        const deletions = [];
+        snapshot.forEach((d) => {
+            deletions.push(deleteDoc(doc(db, "reports", d.id)));
+        });
+        await Promise.all(deletions);
+        message.textContent = "Demo reports have been cleared.";
+        await renderReports();
+    } catch (error) {
+        console.error("Error clearing reports:", error);
+    }
+}
+
+function formatDate(createdAt) {
+    if (createdAt && typeof createdAt.toDate === "function") {
+        return createdAt.toDate().toISOString().split("T")[0];
+    }
+    return "Pending";
+}
+
+async function renderReports() {
+    const reports = await getReports();
     reportsList.innerHTML = "";
 
     if (reports.length === 0) {
@@ -86,9 +117,7 @@ function renderReports() {
         return;
     }
 
-    for (let i = 0; i < reports.length; i++) {
-        const report = reports[i];
-
+    reports.forEach((report) => {
         const reportCard = document.createElement("article");
         reportCard.className = "report";
 
@@ -100,7 +129,8 @@ function renderReports() {
 
         const meta = document.createElement("p");
         meta.className = "report-meta";
-        meta.textContent = `Status: ${report.status} | Votes: ${report.votes} | Created: ${report.createdAt}`;
+        meta.textContent =
+            `Status: ${report.status} | Votes: ${report.votes} | Created: ${formatDate(report.createdAt)}`;
 
         const voteButton = document.createElement("button");
         voteButton.type = "button";
@@ -113,9 +143,8 @@ function renderReports() {
         reportCard.appendChild(description);
         reportCard.appendChild(meta);
         reportCard.appendChild(voteButton);
-
         reportsList.appendChild(reportCard);
-    }
+    });
 }
 
 reportForm.addEventListener("submit", submitReport);
