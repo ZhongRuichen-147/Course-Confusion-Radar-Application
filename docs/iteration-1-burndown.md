@@ -27,8 +27,8 @@ The goal of Iteration 1 is to build the core student confusion report workflow.
 | Day   | Planned Remaining Work | Actual Remaining Work | Notes                                                                            |
 | ----- | ---------------------: | --------------------: | -------------------------------------------------------------------------------- |
 | Day 0 |                      7 |                     7 | Iteration 1 started.                                                             |
-| Day 1 |                      6 |                     6 | Initial interface and structure prepared.                                        |
-| Day 2 |                      5 |                     4 | Course topic selection was completed.                                            |
+| Day 1 |                      6 |                     7 | Initial interface and structure prepared, but no user story was fully completed. |
+| Day 2 |                      5 |                     6 | Course topic selection was completed.                                            |
 | Day 3 |                      4 |                     4 | Confusion report submission functionality was implemented.                       |
 | Day 4 |                      3 |                     4 | Remaining user stories were reviewed.                                            |
 | Day 5 |                      2 |                     4 | View reports and voting functionality still required further work.               |
@@ -39,12 +39,12 @@ The goal of Iteration 1 is to build the core student confusion report workflow.
 
 ## Burn Down Graph
 
-```
+```text
 Remaining Work
-7 | Planned: *        Actual: *
-6 | Planned:  *       Actual:  *
+7 | Planned: *        Actual: *  *
+6 | Planned:  *       Actual:    *
 5 | Planned:   *
-4 | Planned:    *     Actual:   *  *  *  *  *
+4 | Planned:    *     Actual:       *  *  *  *  *
 3 | Planned:     *
 2 | Planned:      *
 1 | Planned:       *

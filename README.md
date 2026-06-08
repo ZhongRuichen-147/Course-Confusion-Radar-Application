@@ -105,19 +105,18 @@ In Practical Week 3, the first iteration of the Course Confusion Radar Applicati
 
 An Iteration 1 board was created in the `docs` folder:
 
-* `docs/iteration-1-board.md`
+- `docs/iteration-1-board.md`
 
 This board lists the planned user stories for Iteration 1 and their current development status.
 
 ### Iteration 1 User Stories
 
-| ID  | User Story                                                                                                                    | Priority | Status |
-| --- | ----------------------------------------------------------------------------------------------------------------------------- | -------: | ------ |
-| US1 | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed.          |       10 | Done   |
-| US2 | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. |       10 | Todo   |
-| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems.       |       20 | Todo   |
-| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. |       10 | Todo   |
-| US5 | As a student, I want to see the status of a confusion report so that I know whether it is pending, explained, or resolved.    |       20 | Todo   |
+| ID | User Story | Priority | Effort | Status |
+|---|---|---:|---:|---|
+| US1 | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed. | 10 | 2 days | Done |
+| US2 | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. | 10 | 1 day | Done |
+| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems. | 20 | 2 days | In Progress |
+| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. | 10 | 2 days | Todo |
 
 ### Implementation Completed in Week 3
 
@@ -125,19 +124,19 @@ The first confusion report management functionality was implemented during Itera
 
 The following files were added or updated:
 
-* `index.html`: added the initial page structure for the confusion radar application.
-* `styles.css`: added the initial layout and component styling.
-* `script.js`: implemented the first confusion report management functionality.
-* `docs/iteration-1-board.md`: created the Iteration 1 board.
-* `README.md`: added and updated project information, user stories, and development progress.
+- `index.html`: added the initial page structure for the confusion radar application.
+- `styles.css`: added the initial layout and component styling.
+- `script.js`: implemented the first confusion report management functionality.
+- `docs/iteration-1-board.md`: created and updated the Iteration 1 board.
+- `README.md`: added and updated project information, user stories, and development progress.
 
 ### Current Status
 
-At this stage, the project has moved from requirements planning into initial implementation. The application now has an initial frontend structure and the first implemented feature related to confusion report management.
+At this stage, the project has moved from requirements planning into initial implementation. The application now has an initial frontend structure, and two Iteration 1 user stories have been completed.
 
 ---
 
-## 8. Practical Week 3 Part 2 Progress
+## 9. Practical Week 3 Part 2 Progress
 
 In Practical Week 3 Part 2, the planned user stories were allocated into three iterations for Milestone 1 based on priority, estimated effort, and feature dependency.
 
@@ -160,7 +159,7 @@ Related files:
 
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application.
 
@@ -168,5 +167,8 @@ The feedback showed that students need a private and simple way to report confus
 
 These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
-In Practical Week 3, Iteration 1 was started. An Iteration 1 board was created, planned user stories were marked for development, and the first confusion report management functionality was implemented. This means the project has progressed from requirements planning to initial coding and feature implementation.
+In Practical Week 3, Iteration 1 was started. An Iteration 1 board was created, planned user stories were monitored using Todo, In Progress, and Done labels, and the first confusion report management functionality was implemented.
 
+In Practical Week 3 Part 2, the user stories were allocated into three iterations for Milestone 1. At least two Iteration 1 user stories were completed, and a burn down graph was created to monitor Iteration 1 progress.
+
+This means the project has progressed from requirements planning to initial coding, iteration planning, and progress tracking.
