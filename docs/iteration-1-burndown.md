@@ -39,19 +39,9 @@ The goal of Iteration 1 is to build the core student confusion report workflow.
 
 ## Burn Down Graph
 
-```text
-Remaining Work
-7 | Planned: *        Actual: *  *
-6 | Planned:  *       Actual:    *
-5 | Planned:   *
-4 | Planned:    *     Actual:       *  *  *  *  *
-3 | Planned:     *
-2 | Planned:      *
-1 | Planned:       *
-0 | Planned:        *
-   -----------------------------------------
-    Day0 Day1 Day2 Day3 Day4 Day5 Day6 Day7
-```
+![Iteration 1 Burn Down Chart](iteration-1-burndown.png)
+
+The chart shows planned (ideal) remaining work against actual remaining work across the 7-day iteration.
 
 ---
 
