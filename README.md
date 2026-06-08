@@ -46,7 +46,7 @@ The platform will allow students to submit confusing topics, vote "I'm confused 
 The project will use the following technology stack:
 
 - Frontend: HTML, CSS, JavaScript
-- Backend / Database: Firebase
+- Database: Firebase Firestore (NoSQL cloud database)
 - Version Control: GitHub
 
 This technology stack is suitable for an individual project because it allows the application to store and manage data without building a complex backend server.
@@ -99,7 +99,7 @@ In this report, priority 10 represents the highest priority and priority 50 repr
 
 ## 8. Practical Week 3: Iteration 1 Progress
 
-In Practical Week 3, the first iteration of the Course Confusion Radar Application was started. The main goal of Iteration 1 is to build the first working version of the confusion report feature so that students can submit and view confusion reports.
+In Practical Week 3, the first iteration of the Course Confusion Radar Application was started. The goal of Iteration 1 is to build the core student confusion report workflow so that students can submit, view, and vote on confusion reports.
 
 ### Iteration 1 Board
 
@@ -107,7 +107,7 @@ An Iteration 1 board was created in the `docs` folder:
 
 - `docs/iteration-1-board.md`
 
-This board lists the planned user stories for Iteration 1 and their current development status.
+This board lists the Iteration 1 user stories and their current development status, using Todo, In Progress, and Done labels.
 
 ### Iteration 1 User Stories
 
@@ -115,24 +115,24 @@ This board lists the planned user stories for Iteration 1 and their current deve
 |---|---|---:|---:|---|
 | US1 | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed. | 10 | 2 days | Done |
 | US2 | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. | 10 | 1 day | Done |
-| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems. | 20 | 2 days | In Progress |
-| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. | 10 | 2 days | Todo |
+| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems. | 20 | 2 days | Done |
+| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. | 10 | 2 days | Done |
 
-### Implementation Completed in Week 3
+### Implementation Completed in Iteration 1
 
-The first confusion report management functionality was implemented during Iteration 1.
+All four Iteration 1 user stories were implemented and committed. The following files were added or updated:
 
-The following files were added or updated:
-
-- `index.html`: added the initial page structure for the confusion radar application.
-- `styles.css`: added the initial layout and component styling.
-- `script.js`: implemented the first confusion report management functionality.
+- `index.html`: page structure for the confusion radar application.
+- `styles.css`: layout and component styling.
+- `script.js`: confusion report submission, viewing, and voting, connected to the Firestore database.
 - `docs/iteration-1-board.md`: created and updated the Iteration 1 board.
-- `README.md`: added and updated project information, user stories, and development progress.
+- `docs/milestone-1-plan.md`: allocated user stories across three iterations.
+- `docs/iteration-1-burndown.md` and `docs/iteration-1-burndown.png`: burn down data and chart.
+- `README.md`: project information, user stories, and development progress.
 
 ### Current Status
 
-At this stage, the project has moved from requirements planning into initial implementation. The application now has an initial frontend structure, and two Iteration 1 user stories have been completed.
+All four Iteration 1 user stories (submit, select topic, view, vote) are complete and backed by the Firestore database. The project has moved from requirements planning into a working first version with iteration planning and progress tracking in place.
 
 ---
 
@@ -140,35 +140,32 @@ At this stage, the project has moved from requirements planning into initial imp
 
 In Practical Week 3 Part 2, the planned user stories were allocated into three iterations for Milestone 1 based on priority, estimated effort, and feature dependency.
 
-The Iteration 1 board was updated with Todo, In Progress, and Done labels to monitor the progress of the current iteration.
-
-At least two Iteration 1 user stories were completed:
+The Iteration 1 board was updated with Todo, In Progress, and Done labels to monitor progress. All four Iteration 1 user stories were completed:
 
 | ID | Completed User Story | Evidence |
 |---|---|---|
-| US1 | Submit Anonymous Confusion Report | Implemented in the application interface and JavaScript functionality. |
-| US2 | Select Course Topic | Implemented through the course topic selection field when creating a report. |
+| US1 | Submit Anonymous Confusion Report | Report submission implemented in the interface and written to the Firestore database. |
+| US2 | Select Course Topic | Course topic selection field implemented when creating a report. |
+| US3 | View Existing Confusion Reports | Reports are read back from Firestore and displayed in the reports list. |
+| US4 | Vote "I'm Confused Too" | Vote button increments the report's vote count in Firestore. |
 
-A burn down graph was also created to monitor the progress of Iteration 1.
+The application now stores all confusion reports in a Firebase Firestore database instead of local browser storage.
+
+A burn down line chart (planned vs actual remaining work) was created to monitor Iteration 1 progress, available at `docs/iteration-1-burndown.png`.
 
 Related files:
 
 - `docs/milestone-1-plan.md`
 - `docs/iteration-1-board.md`
 - `docs/iteration-1-burndown.md`
+- `docs/iteration-1-burndown.png`
 
 ---
 
 ## 10. Conclusion
 
-In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application.
+In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
-The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties.
+In Practical Week 3 and Week 3 Part 2, Iteration 1 was started and completed. The user stories were allocated into three iterations for Milestone 1, an Iteration 1 board was created and monitored using Todo, In Progress, and Done labels, and all four Iteration 1 user stories were implemented and backed by a Firebase Firestore database. A burn down chart was created to track progress.
 
-These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
-
-In Practical Week 3, Iteration 1 was started. An Iteration 1 board was created, planned user stories were monitored using Todo, In Progress, and Done labels, and the first confusion report management functionality was implemented.
-
-In Practical Week 3 Part 2, the user stories were allocated into three iterations for Milestone 1. At least two Iteration 1 user stories were completed, and a burn down graph was created to monitor Iteration 1 progress.
-
-This means the project has progressed from requirements planning to initial coding, iteration planning, and progress tracking.
+This means the project has progressed from requirements planning to a working first version, with iteration planning, database integration, and progress tracking in place.
