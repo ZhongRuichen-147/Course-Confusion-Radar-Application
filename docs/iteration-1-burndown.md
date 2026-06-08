@@ -24,16 +24,16 @@ The goal of Iteration 1 is to build the core student confusion report workflow.
 
 ## Burn Down Data
 
-| Day   | Planned Remaining Work | Actual Remaining Work | Notes                                                                            |
-| ----- | ---------------------: | --------------------: | -------------------------------------------------------------------------------- |
-| Day 0 |                      7 |                     7 | Iteration 1 started.                                                             |
-| Day 1 |                      6 |                     7 | Initial interface and structure prepared, but no user story was fully completed. |
-| Day 2 |                      5 |                     6 | Course topic selection was completed.                                            |
-| Day 3 |                      4 |                     4 | Confusion report submission functionality was implemented.                       |
-| Day 4 |                      3 |                     4 | Remaining user stories were reviewed.                                            |
-| Day 5 |                      2 |                     4 | View reports and voting functionality still required further work.               |
-| Day 6 |                      1 |                     4 | Iteration 1 progress was monitored.                                              |
-| Day 7 |                      0 |                     4 | Two user stories were completed; remaining work will continue in the next stage. |
+| Day   | Planned Remaining Work | Actual Remaining Work | Notes                                                        |
+| ----- | ---------------------: | --------------------: | ------------------------------------------------------------ |
+| Day 0 |                      7 |                     7 | Iteration 1 started. Project structure and page layout set up. |
+| Day 1 |                      6 |                     7 | Interface prepared, but no user story fully completed yet.   |
+| Day 2 |                      5 |                     6 | US2 Select Course Topic completed (1 day).                   |
+| Day 3 |                      4 |                     4 | US1 Submit Anonymous Confusion Report completed (2 days).    |
+| Day 4 |                      3 |                     4 | Firestore database integration in progress.                  |
+| Day 5 |                      2 |                     2 | US3 View Existing Confusion Reports completed (2 days).      |
+| Day 6 |                      1 |                     2 | US4 Vote "I'm Confused Too" in progress.                    |
+| Day 7 |                      0 |                     0 | US4 completed. All Iteration 1 user stories done.           |
 
 ---
 
@@ -47,6 +47,4 @@ The chart shows planned (ideal) remaining work against actual remaining work acr
 
 ## Progress Reflection
 
-The burn down graph shows that Iteration 1 has started and two user stories have been completed. However, some planned work remains unfinished, including improving the display of existing confusion reports and adding voting functionality.
-
-The remaining work will be continued in the next development stage.
+The burn down graph shows that all four Iteration 1 user stories were completed by the end of the iteration. The actual line stayed slightly above the planned line during the early and middle days, mainly because the first day was spent setting up the page structure without completing a user story, and integrating the Firestore database took additional time on Day 4. Progress then caught up, and the remaining work reached zero by Day 7.

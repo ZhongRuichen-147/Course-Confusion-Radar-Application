@@ -20,12 +20,12 @@ The user stories are allocated into three iterations based on priority, estimate
 
 Iteration 1 focuses on the core student workflow. These features are required first because the application needs student confusion reports before lecturer dashboard features can be useful.
 
-| ID  | User Story                                                                                                                    | Priority | Effort | Status      |
-| --- | ----------------------------------------------------------------------------------------------------------------------------- | -------: | -----: | ----------- |
-| US1 | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed.          |       10 | 2 days | Done        |
-| US2 | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. |       10 |  1 day | Done        |
-| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems.       |       20 | 2 days | In Progress |
-| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. |       10 | 2 days | Todo        |
+| ID  | User Story                                                                                                                    | Priority | Effort | Status |
+| --- | ----------------------------------------------------------------------------------------------------------------------------- | -------: | -----: |--------|
+| US1 | As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed.          |       10 | 2 days | Done   |
+| US2 | As a student, I want to select a course topic when submitting a confusion report so that my issue can be categorized clearly. |       10 |  1 day | Done   |
+| US3 | As a student, I want to view existing confusion reports so that I can see whether other students have similar problems.       |       20 | 2 days | Done   |
+| US4 | As a student, I want to vote "I'm confused too" on an existing report so that common learning difficulties can be identified. |       10 | 2 days | Done   |
 
 ---
 
