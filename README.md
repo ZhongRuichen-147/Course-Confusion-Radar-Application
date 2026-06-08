@@ -137,6 +137,29 @@ At this stage, the project has moved from requirements planning into initial imp
 
 ---
 
+## 8. Practical Week 3 Part 2 Progress
+
+In Practical Week 3 Part 2, the planned user stories were allocated into three iterations for Milestone 1 based on priority, estimated effort, and feature dependency.
+
+The Iteration 1 board was updated with Todo, In Progress, and Done labels to monitor the progress of the current iteration.
+
+At least two Iteration 1 user stories were completed:
+
+| ID | Completed User Story | Evidence |
+|---|---|---|
+| US1 | Submit Anonymous Confusion Report | Implemented in the application interface and JavaScript functionality. |
+| US2 | Select Course Topic | Implemented through the course topic selection field when creating a report. |
+
+A burn down graph was also created to monitor the progress of Iteration 1.
+
+Related files:
+
+- `docs/milestone-1-plan.md`
+- `docs/iteration-1-board.md`
+- `docs/iteration-1-burndown.md`
+
+---
+
 ## 9. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application.
