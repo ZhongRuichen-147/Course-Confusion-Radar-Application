@@ -162,10 +162,49 @@ Related files:
 
 ---
 
-## 10. Conclusion
+## 10. Practical 4: Iteration 2 Progress (US5)
+
+In Practical 4, work began on Iteration 2 of the Course Confusion Radar Application, following the task execution and tracking process introduced in Chapter 4.
+
+### Task Breakdown for US5
+
+US5 (View Report Status) was broken down into four tasks and tracked using GitHub Issues with `todo`, `in-progress`, and `done` labels:
+
+| Task ID | Description | Effort |
+|---|---|---:|
+| T5.1 | Verify status field write/read logic | 0.1 day |
+| T5.2 | Add color-coded status badges (Pending/Explained/Resolved) | 0.3 day |
+| T5.3 | Write manual test documentation | 0.1 day |
+| T5.4 | Update milestone plan and create Iteration 2 board | 0.1 day |
+
+During task estimation review, it was found that the `status` field was already written to Firestore and read back during Iteration 1 (as part of US1 implementation), so the remaining work for US5 was lower than the original 1-day estimate in `milestone-1-plan.md`.
+
+### Implementation
+
+A feature branch `feature/us5-report-status` was created for this work. The following files were added or updated:
+
+- `script.js`: report status is now rendered as a color-coded badge instead of plain text.
+- `styles.css`: added `.status-badge` styling with distinct colors for Pending (yellow), Explained (blue), and Resolved (green).
+- `docs/us5-manual-test.md`: manual test steps for verifying all three status states via the Firebase console.
+- `docs/milestone-1-plan.md`: US5 status updated to Done.
+- `docs/iteration-2-board.md`: created to track Iteration 2 user stories (US5-US8).
+
+### GitHub Workflow
+
+Each task was committed separately with a descriptive message, and the corresponding GitHub Issue was updated from `todo` to `done` as work progressed. The feature branch was merged into `main` via a pull request, with self-review comments added on the changed files before merging.
+
+### Current Status
+
+US5 is complete and verified: all three status values (Pending, Explained, Resolved) render with the correct badge color, confirmed through manual testing against the Firestore database. The remaining Iteration 2 user stories (US6-US8, lecturer-side features) are planned but not yet started.
+
+---
+
+## 11. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
 In Practical Week 3 and Week 3 Part 2, Iteration 1 was started and completed. The user stories were allocated into three iterations for Milestone 1, an Iteration 1 board was created and monitored using Todo, In Progress, and Done labels, and all four Iteration 1 user stories were implemented and backed by a Firebase Firestore database. A burn down chart was created to track progress.
 
 This means the project has progressed from requirements planning to a working first version, with iteration planning, database integration, and progress tracking in place.
+
+In Practical 4, Iteration 2 began with US5 (report status display), broken down into tracked tasks, implemented via a feature branch, and merged through a pull request with self-review, following the GitHub task-tracking workflow introduced this week.
