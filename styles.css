@@ -108,3 +108,24 @@ footer {
     color: #666;
     padding: 24px;
 }
+
+.status-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+}
+
+.status-pending {
+    background-color: #f9a825;
+}
+
+.status-explained {
+    background-color: #1565c0;
+}
+
+.status-resolved {
+    background-color: #2e7d32;
+}

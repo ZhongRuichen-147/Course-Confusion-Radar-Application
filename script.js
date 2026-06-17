@@ -129,8 +129,19 @@ async function renderReports() {
 
         const meta = document.createElement("p");
         meta.className = "report-meta";
-        meta.textContent =
-            `Status: ${report.status} | Votes: ${report.votes} | Created: ${formatDate(report.createdAt)}`;
+
+        const statusBadge = document.createElement("span");
+        const statusValue = report.status || "Pending";
+        statusBadge.className = `status-badge status-${statusValue.toLowerCase()}`;
+        statusBadge.textContent = statusValue;
+
+        meta.appendChild(document.createTextNode("Status: "));
+        meta.appendChild(statusBadge);
+        meta.appendChild(
+            document.createTextNode(
+                ` | Votes: ${report.votes} | Created: ${formatDate(report.createdAt)}`
+            )
+        );
 
         const voteButton = document.createElement("button");
         voteButton.type = "button";
