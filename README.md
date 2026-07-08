@@ -199,7 +199,42 @@ US5 is complete and verified: all three status values (Pending, Explained, Resol
 
 ---
 
-## 11. Conclusion
+## 11. Practical 5: Iteration 1 Reflection
+
+In Practical 5, the project was reviewed against SRP and DRY principles, and the completed and unfinished user stories were documented.
+
+### SRP and DRY Review
+The SRP and DRY review is documented in `docs/srp-dry-review.md`.
+
+The current implementation uses functional JavaScript rather than traditional OOP classes, so the review treats the functions in `script.js` as a conceptual responsibility group. The main finding is that `renderReports()` has more than one responsibility because it builds UI elements, formats status badges, and attaches event handlers.
+
+### Task and User Story Monitoring
+The project uses GitHub Issues with `todo`, `in-progress`, and `done` labels to monitor user stories. Completed user stories are marked as done, while unfinished backlog items remain todo.
+
+### Completed vs Unfinished User Stories
+The Iteration 1 review is documented in `docs/iteration-1-review.md`.
+
+US1-US4 were completed in Iteration 1. US5 was completed during Practical 4 as the first Iteration 2 user story. The remaining unfinished backlog items are US6-US10.
+
+### Completed User Story Pages
+GitHub-rendered documentation pages were added for each completed user story:
+
+- `docs/user-stories/us1-submit-anonymous-confusion-report.md`
+- `docs/user-stories/us2-select-course-topic.md`
+- `docs/user-stories/us3-view-existing-confusion-reports.md`
+- `docs/user-stories/us4-vote-confused-too.md`
+- `docs/user-stories/us5-view-report-status.md`
+
+This interprets "github pages" as repository documentation pages rendered by GitHub. If the lecturer confirms that the task specifically means GitHub Pages hosting through Settings > Pages, this can be updated later.
+
+### Actual Velocity
+The course material used for this review did not explicitly define the velocity formula or unit. Therefore, the calculation uses estimated effort-days as a velocity proxy.
+
+Using that metric, the actual velocity for Iteration 1 was **7 effort days per iteration**. If counted by completed user stories instead, the velocity was **4 completed user stories per iteration**.
+
+---
+
+## 12. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
@@ -208,3 +243,5 @@ In Practical Week 3 and Week 3 Part 2, Iteration 1 was started and completed. Th
 This means the project has progressed from requirements planning to a working first version, with iteration planning, database integration, and progress tracking in place.
 
 In Practical 4, Iteration 2 began with US5 (report status display), broken down into tracked tasks, implemented via a feature branch, and merged through a pull request with self-review, following the GitHub task-tracking workflow introduced this week.
+
+In Practical 5, the project was reviewed for SRP and DRY, the completed and unfinished user stories were documented, and GitHub Issues were used to track both Practical 5 tasks and user stories with `todo`, `in-progress`, and `done` labels. Documentation pages were also added for the completed user stories, and Iteration 1 velocity was calculated using estimated effort-days as a proxy because the course material used for this review did not explicitly define a velocity formula.
