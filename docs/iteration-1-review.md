@@ -28,7 +28,9 @@ No Iteration 1 user stories were left unfinished. All planned Iteration 1 work w
 
 ## Actual Velocity
 
-The Iteration 1 planned effort was:
+The provided course material used for this review did not explicitly define a velocity unit or formula. Therefore, this calculation treats the existing estimated effort-days as a velocity proxy.
+
+The Iteration 1 completed effort was:
 
 - US1: 2 days
 - US2: 1 day
@@ -37,6 +39,6 @@ The Iteration 1 planned effort was:
 
 Total completed effort: **7 effort days**
 
-Actual velocity for Iteration 1: **7 effort days per iteration**
+Actual velocity for Iteration 1, using effort-days as the metric: **7 effort days per iteration**
 
-If velocity is counted by completed user stories instead of effort days, the velocity is **4 completed user stories per iteration**.
+If velocity is counted by completed user stories instead of effort-days, the velocity is **4 completed user stories per iteration**.
