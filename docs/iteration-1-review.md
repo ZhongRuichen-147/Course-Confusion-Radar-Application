@@ -26,6 +26,8 @@ No Iteration 1 user stories were left unfinished. All planned Iteration 1 work w
 | US5 | Done in Iteration 2 / Practical 4 |
 | US6-US10 | Todo |
 
+Note: During Practical 6, US10 was moved from Iteration 3 into Iteration 2 based on the Iteration 1 velocity proxy. See `docs/iteration-2-backlog-update.md` for details.
+
 ## Actual Velocity
 
 The provided course material used for this review did not explicitly define a velocity unit or formula. Therefore, this calculation treats the existing estimated effort-days as a velocity proxy.
