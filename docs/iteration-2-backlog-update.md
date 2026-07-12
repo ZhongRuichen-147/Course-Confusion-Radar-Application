@@ -24,6 +24,8 @@ Iteration 1 completed effort:
 
 Using effort-days as the metric, the Iteration 1 velocity proxy is **7 effort-days per iteration**.
 
+This proxy has a known limitation. Because the effort estimates are expressed in days and Iteration 1 was a 7-day iteration delivered on schedule, the velocity proxy is numerically equal to the iteration length. It is therefore used as a planning baseline rather than as a precise measure of capacity.
+
 ## Original Iteration 2 Backlog
 
 | ID | User Story | Effort | Status |
@@ -35,6 +37,8 @@ Using effort-days as the metric, the Iteration 1 velocity proxy is **7 effort-da
 | **Total** |  | **6 days** |  |
 
 The original Iteration 2 backlog used 6 effort-days, which was below the Iteration 1 velocity proxy of 7 effort-days.
+
+US5 is counted using its original 1 effort-day estimate. README section 10 documents that, during the Practical 4 task estimation review, the remaining implementation work for US5 was smaller than this estimate because the `status` field had already been written to and read from Firestore during Iteration 1. The original estimate is retained here so that the updated Iteration 2 total remains comparable with the Iteration 1 estimates used to derive the velocity proxy.
 
 ## Updated Iteration 2 Backlog
 

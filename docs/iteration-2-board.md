@@ -44,5 +44,4 @@ Resolved), read from the `status` field in Firestore.
 
 ## Current Iteration 2 Progress
 
-US5 is complete. US6, US7, US8, and US10 are planned for the rest of Iteration 2. US10 was moved from Iteration 3 into 
-Iteration 2 because the Iteration 1 velocity proxy shows that the team can handle about 7 effort-days per iteration.
+US5 is complete. US6, US7, US8, and US10 are planned for the rest of Iteration 2. US10 was moved from Iteration 3 into Iteration 2 because the Iteration 1 velocity proxy provides a planning baseline of about 7 effort-days per iteration.
