@@ -234,7 +234,35 @@ Using that metric, the actual velocity for Iteration 1 was **7 effort days per i
 
 ---
 
-## 12. Conclusion
+## 12. Practical 6: Iteration 2 Planning Adjustment
+
+In Practical 6, the Iteration 1 reflection was used to adjust the Iteration 2 plan.
+
+The SRP and DRY findings from Practical 5 are documented in `docs/srp-dry-review.md` and are referenced here as evidence for the Iteration 1 reflection.
+
+The Iteration 1 burn down graph is documented in `docs/iteration-1-burndown.md` and `docs/iteration-1-burndown.png`.
+
+The Iteration 1 velocity is documented in `docs/iteration-1-review.md`. Because the provided course material used for this review did not explicitly define a velocity formula, the project uses estimated effort-days as a velocity proxy.
+
+Using that metric, the Iteration 1 velocity proxy was 7 effort-days per iteration. The original Iteration 2 backlog contained US5-US8, with a total of 6 effort-days. To better match the Iteration 1 velocity proxy, US10 was moved from Iteration 3 into Iteration 2.
+
+The updated Iteration 2 backlog is documented in `docs/iteration-2-backlog-update.md`, and the Iteration 2 task breakdown is documented in `docs/iteration-2-tasks.md`.
+
+The updated Iteration 2 user stories are:
+
+- US5: View Report Status - Done
+- US6: Lecturer Dashboard - Todo
+- US7: Sort Reports by Votes - Todo
+- US8: Mark Report as Resolved - Todo
+- US10: Filter Reports by Topic - Todo
+
+US9 remains planned for Iteration 3.
+
+The completed user story pages for US1-US5 remain available in `docs/user-stories/`. No additional completed user story page was added during Practical 6 because US6, US7, US8, US9, and US10 are still Todo.
+
+---
+
+## 13. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
@@ -245,3 +273,5 @@ This means the project has progressed from requirements planning to a working fi
 In Practical 4, Iteration 2 began with US5 (report status display), broken down into tracked tasks, implemented via a feature branch, and merged through a pull request with self-review, following the GitHub task-tracking workflow introduced this week.
 
 In Practical 5, the project was reviewed for SRP and DRY, the completed and unfinished user stories were documented, and GitHub Issues were used to track both Practical 5 tasks and user stories with `todo`, `in-progress`, and `done` labels. Documentation pages were also added for the completed user stories, and Iteration 1 velocity was calculated using estimated effort-days as a proxy because the course material used for this review did not explicitly define a velocity formula.
+
+Practical 6 added an Iteration 2 planning adjustment based on the Iteration 1 velocity proxy, with US10 moved into Iteration 2 and US9 remaining in Iteration 3.
