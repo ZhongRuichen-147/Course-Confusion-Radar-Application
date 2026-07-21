@@ -54,6 +54,8 @@ This technology stack is suitable for an individual project because it allows th
 ## 5. Data and Privacy
 The Course Confusion Radar Application will not collect sensitive personal information from students. Confusion reports will be submitted anonymously to encourage honest feedback and reduce the pressure of asking questions. The system will only store basic information required for the platform, such as the course topic, confusion description, number of votes, report status, and created date. Student identity will not be required when submitting a confusion report. This approach helps protect student privacy while allowing lecturers to identify common learning difficulties effectively.
 
+The Firestore security rules currently allow public read and write access to the `reports` collection. This matches the anonymous, no-login design of the application, where any student can submit or view a report without authenticating. Because no student identity or personal information is stored, this access model does not expose any personal data. For a production system, access would be tightened (for example, read-only for students and status changes restricted to lecturers), but public access is acceptable for this student demonstration project.
+
 ## 6. Initial Backlog Ideas
 
 1. As a student, I want to submit a confusing topic anonymously so that I can ask for help without feeling embarrassed.
@@ -225,12 +227,26 @@ GitHub-rendered documentation pages were added for each completed user story:
 - `docs/user-stories/us4-vote-confused-too.md`
 - `docs/user-stories/us5-view-report-status.md`
 
-This interprets "github pages" as repository documentation pages rendered by GitHub. If the lecturer confirms that the task specifically means GitHub Pages hosting through Settings > Pages, this can be updated later.
+GitHub Pages hosting has since been enabled, so these user story pages are now published as live web pages rather than only repository files. See the Practical 5 Follow-up subsection below for details.
 
 ### Actual Velocity
 The course material used for this review did not explicitly define the velocity formula or unit. Therefore, the calculation uses estimated effort-days as a velocity proxy.
 
 Using that metric, the actual velocity for Iteration 1 was **7 effort days per iteration**. If counted by completed user stories instead, the velocity was **4 completed user stories per iteration**.
+
+### Practical 5 Follow-up (completed after the initial submission)
+
+After the initial Practical 5 and 6 submissions, several follow-up improvements were made to complete and strengthen the Practical 5 work. Each was tracked as a GitHub Issue (#47-#51).
+
+**SRP refactoring.** The main SRP weakness identified in `docs/srp-dry-review.md` was corrected. `renderReports()` was split by extracting `createStatusBadge()` and `createReportCard()`, so it now only retrieves reports, handles the empty state, and appends cards. The change is structural and does not alter behaviour, and it is recorded under "Refactoring Applied" in `docs/srp-dry-review.md`. (Issue #49)
+
+**Acceptance criteria.** Numbered acceptance criteria (AC1.1, AC2.1, and so on) were added to the US1-US5 pages in `docs/user-stories/`, so that the Practical 7 test cases can be written directly against them. (Issue #48)
+
+**Velocity documentation consolidation.** The velocity-proxy explanation, previously repeated across several documents, was consolidated into a single source of truth in `docs/iteration-1-review.md`. The other planning documents now link back to it. No numbers or conclusions were changed. (Issue #50)
+
+**GitHub Pages hosting.** GitHub Pages was enabled from the `main` branch root (Settings > Pages). A `_config.yml` (Cayman theme) and a documentation index at `docs/index.md` were added so the Markdown documents render as themed web pages with resolved `.html` links. The application is published as a live demo at: https://zhongruichen-147.github.io/Course-Confusion-Radar-Application/ (Issue #47)
+
+**Firestore rules fix.** While verifying the live deployment, the application showed an empty reports list. The cause was that the Firestore test-mode security rules, set on 8 June 2026, had expired after 30 days and were denying all reads and writes (`permission-denied`). The rules were updated to allow read and write on the `reports` collection, matching the anonymous design described in section 5, and the live application was confirmed to render the existing reports again. (Issue #51)
 
 ---
 
