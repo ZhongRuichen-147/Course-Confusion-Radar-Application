@@ -26,7 +26,29 @@ functions in `script.js` as the conceptual responsibility group represented by `
 | Status values appear in multiple places. | `Pending`, `Explained`, and `Resolved` are used in code, CSS, and manual test documentation. | This is acceptable in the current small project, but constants could be introduced later. |
 | Error handling is repeated. | Several functions use separate `try/catch` blocks. | For a larger project, common error display logic could be extracted. |
 
+## Refactoring Applied
+
+The findings above were recorded first, and the most significant SRP violation was then corrected in `script.js`.
+
+| Change | Reason |
+|---|---|
+| Extracted `createStatusBadge(status)` from `renderReports()` | Status badge construction is a single, self-contained formatting responsibility. Separating it means the badge rules (text and colour class) live in one place instead of being embedded in the rendering loop. |
+| Extracted `createReportCard(report)` from `renderReports()` | Building the DOM for one report card is a separate responsibility from deciding which reports to display. |
+| `renderReports()` reduced to retrieve, handle the empty state, and append cards | The function now coordinates rendering instead of performing every rendering step itself. |
+
+The refactoring is structural only. No behaviour was changed: the rendered report cards, badge colours, vote button, and empty-state message are identical to the previous version.
+
+The `voteForReport()` call remains inside `createReportCard()` because the click handler must be bound to the button that the function creates. Separating event binding from DOM creation would require a larger design change than this practical needs.
+
 ## Reflection
-The current implementation is simple and understandable for a small student project. The main SRP weakness is `renderReports()`, 
-because it mixes UI construction, status badge formatting, and event binding. However, a large refactor is not necessary 
-for this practical because the task asks to check and list findings, not to redesign the code.
+The current implementation is simple and understandable for a small student project. The main SRP weakness identified in this
+review was `renderReports()`, because it mixed UI construction, status badge formatting, and event binding. This specific
+weakness has now been corrected by extracting `createStatusBadge()` and `createReportCard()`, as described above.
+
+A larger redesign, such as introducing full OOP classes or separating the Firestore access layer from the UI layer, is not
+necessary for this practical because the task asks to check and list findings rather than to redesign the code. The DRY
+findings were reviewed and judged acceptable for the current project size, so they were recorded as future improvements
+rather than changed now.
+
+A useful side effect of this refactoring is that `createStatusBadge()` is a small function with predictable output, which
+makes it easier to cover with automated tests in a later practical.

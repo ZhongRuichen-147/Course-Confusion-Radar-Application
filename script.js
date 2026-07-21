@@ -105,6 +105,48 @@ function formatDate(createdAt) {
     return "Pending";
 }
 
+function createStatusBadge(status) {
+    const statusValue = status || "Pending";
+    const statusBadge = document.createElement("span");
+    statusBadge.className = `status-badge status-${statusValue.toLowerCase()}`;
+    statusBadge.textContent = statusValue;
+    return statusBadge;
+}
+
+function createReportCard(report) {
+    const reportCard = document.createElement("article");
+    reportCard.className = "report";
+
+    const title = document.createElement("h3");
+    title.textContent = report.topic;
+
+    const description = document.createElement("p");
+    description.textContent = report.description;
+
+    const meta = document.createElement("p");
+    meta.className = "report-meta";
+    meta.appendChild(document.createTextNode("Status: "));
+    meta.appendChild(createStatusBadge(report.status));
+    meta.appendChild(
+        document.createTextNode(
+            ` | Votes: ${report.votes} | Created: ${formatDate(report.createdAt)}`
+        )
+    );
+
+    const voteButton = document.createElement("button");
+    voteButton.type = "button";
+    voteButton.textContent = "I'm confused too";
+    voteButton.addEventListener("click", function () {
+        voteForReport(report.id);
+    });
+
+    reportCard.appendChild(title);
+    reportCard.appendChild(description);
+    reportCard.appendChild(meta);
+    reportCard.appendChild(voteButton);
+    return reportCard;
+}
+
 async function renderReports() {
     const reports = await getReports();
     reportsList.innerHTML = "";
@@ -118,43 +160,7 @@ async function renderReports() {
     }
 
     reports.forEach((report) => {
-        const reportCard = document.createElement("article");
-        reportCard.className = "report";
-
-        const title = document.createElement("h3");
-        title.textContent = report.topic;
-
-        const description = document.createElement("p");
-        description.textContent = report.description;
-
-        const meta = document.createElement("p");
-        meta.className = "report-meta";
-
-        const statusBadge = document.createElement("span");
-        const statusValue = report.status || "Pending";
-        statusBadge.className = `status-badge status-${statusValue.toLowerCase()}`;
-        statusBadge.textContent = statusValue;
-
-        meta.appendChild(document.createTextNode("Status: "));
-        meta.appendChild(statusBadge);
-        meta.appendChild(
-            document.createTextNode(
-                ` | Votes: ${report.votes} | Created: ${formatDate(report.createdAt)}`
-            )
-        );
-
-        const voteButton = document.createElement("button");
-        voteButton.type = "button";
-        voteButton.textContent = "I'm confused too";
-        voteButton.addEventListener("click", function () {
-            voteForReport(report.id);
-        });
-
-        reportCard.appendChild(title);
-        reportCard.appendChild(description);
-        reportCard.appendChild(meta);
-        reportCard.appendChild(voteButton);
-        reportsList.appendChild(reportCard);
+        reportsList.appendChild(createReportCard(report));
     });
 }
 
