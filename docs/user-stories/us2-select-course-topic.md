@@ -10,6 +10,14 @@ Done
 Priority: 10  
 Estimated effort: 1 day
 
+## Acceptance Criteria
+
+| ID | Criterion |
+|---|---|
+| AC2.1 | The submission form provides a topic dropdown containing the five course topics: Requirements, User Stories, Agile Iteration, Testing, and GitHub. |
+| AC2.2 | The topic chosen in the dropdown is saved as the `topic` field of the report and is displayed as the heading of the report card. |
+| AC2.3 | The placeholder option "Select a topic" has an empty value and cannot be used to submit a report. |
+
 ## Implementation Evidence
 This feature is implemented in `index.html` through the `topic` dropdown field. The available course topics include Requirements, User Stories, Agile Iteration, Testing, and GitHub. In `script.js`, the selected topic is read through `topicInput.value` and saved together with the report in Firestore.
 
