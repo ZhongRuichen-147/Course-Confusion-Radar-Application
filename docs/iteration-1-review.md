@@ -44,3 +44,9 @@ Total completed effort: **7 effort days**
 Actual velocity for Iteration 1, using effort-days as the metric: **7 effort days per iteration**
 
 If velocity is counted by completed user stories instead of effort-days, the velocity is **4 completed user stories per iteration**.
+
+### Limitations of This Metric
+
+This proxy has a known limitation. Because the effort estimates are expressed in days and Iteration 1 was a 7-day iteration delivered on schedule, the velocity proxy is numerically equal to the iteration length. It is therefore used as a planning baseline rather than as a precise measure of capacity.
+
+This section is the single reference for how velocity is measured in this project. The other planning documents apply this result and link back here instead of restating the definition, so that the metric only has to be corrected in one place if the course later defines a different velocity formula.

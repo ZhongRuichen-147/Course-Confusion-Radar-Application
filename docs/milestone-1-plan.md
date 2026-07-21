@@ -31,9 +31,9 @@ Iteration 1 focuses on the core student workflow. These features are required fi
 
 ## Iteration 2: Lecturer Review, Report Status, and Filtering Features
 
-Iteration 2 focuses on lecturer-side review features, report status visibility, and basic filtering. Using estimated effort-days as a velocity proxy, the Iteration 1 velocity proxy was 7 effort-days. Therefore, US10 was moved from Iteration 3 into Iteration 2 to better match the available capacity.
+Iteration 2 focuses on lecturer-side review features, report status visibility, and basic filtering. The Iteration 1 velocity was 7 effort-days, as calculated in [`iteration-1-review.md`](iteration-1-review.md). Therefore, US10 was moved from Iteration 3 into Iteration 2 to better match the available capacity.
 
-US5 remains listed in Iteration 2 because it belongs to this iteration and has already been completed. US10 was moved from Iteration 3 into Iteration 2 to use the remaining 1 effort-day capacity based on the Iteration 1 velocity proxy.
+US5 remains listed in Iteration 2 because it belongs to this iteration and has already been completed. US10 was moved from Iteration 3 into Iteration 2 to use the remaining 1 effort-day of capacity.
 
 | ID  | User Story                                                                                                                 | Priority | Effort | Status |
 | --- | -------------------------------------------------------------------------------------------------------------------------- | -------: | -----: | ------ |
@@ -47,13 +47,13 @@ US5 remains listed in Iteration 2 because it belongs to this iteration and has a
 
 ## Iteration 3: Topic Management Features
 
-Iteration 3 focuses on lower-priority management features. US10 was moved into Iteration 2 after reviewing the Iteration 1 velocity proxy.
+Iteration 3 focuses on lower-priority management features. US10 was moved into Iteration 2 after reviewing the Iteration 1 velocity.
 
 | ID  | User Story                                                                                              | Priority | Effort | Status |
 | --- | ------------------------------------------------------------------------------------------------------- | -------: | -----: | ------ |
 | US9 | As an admin, I want to add and manage course topics so that confusion reports can be organized properly. |       30 | 2 days | Todo   |
 
-Iteration 3 now contains only US9 (2 effort-days), which is below the Iteration 1 velocity proxy of 7 effort-days. This is because the current backlog is exhausted after the Iteration 2 adjustment. Any additional user stories identified later would be added to this iteration.
+Iteration 3 now contains only US9 (2 effort-days), which is below the Iteration 1 velocity of 7 effort-days. This is because the current backlog is exhausted after the Iteration 2 adjustment. Any additional user stories identified later would be added to this iteration.
 
 ---
 
@@ -65,4 +65,4 @@ Lecturer review features were placed in Iteration 2 because they require student
 
 Topic management was placed in Iteration 3 because it is a lower-priority admin feature that is not required for the first working version of the application.
 
-Filtering (US10) was originally planned for Iteration 3. During Practical 6 it was moved into Iteration 2, because the Iteration 1 velocity proxy showed that the original Iteration 2 backlog had approximately 1 effort-day of unused capacity.
+Filtering (US10) was originally planned for Iteration 3. During Practical 6 it was moved into Iteration 2, because the Iteration 1 velocity showed that the original Iteration 2 backlog had approximately 1 effort-day of unused capacity. The reasoning for this adjustment is recorded in [`iteration-2-backlog-update.md`](iteration-2-backlog-update.md).

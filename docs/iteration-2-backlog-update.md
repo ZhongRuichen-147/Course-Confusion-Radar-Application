@@ -8,9 +8,7 @@ This document explains how the Iteration 1 velocity proxy was used to adjust the
 
 ## Iteration 1 Velocity Proxy
 
-The Iteration 1 velocity was calculated in `docs/iteration-1-review.md`.
-
-Because the provided course material used for this review did not explicitly define a velocity unit or formula, the project uses estimated effort-days as a velocity proxy.
+The Iteration 1 velocity, the metric it uses, and the known limitations of that metric are defined in [`docs/iteration-1-review.md`](iteration-1-review.md). This document applies that result rather than restating it.
 
 Iteration 1 completed effort:
 
@@ -22,9 +20,7 @@ Iteration 1 completed effort:
 | US4 | 2 days |
 | **Total** | **7 days** |
 
-Using effort-days as the metric, the Iteration 1 velocity proxy is **7 effort-days per iteration**.
-
-This proxy has a known limitation. Because the effort estimates are expressed in days and Iteration 1 was a 7-day iteration delivered on schedule, the velocity proxy is numerically equal to the iteration length. It is therefore used as a planning baseline rather than as a precise measure of capacity.
+The Iteration 1 velocity proxy is therefore **7 effort-days per iteration**, and it is used here as the planning baseline for Iteration 2 capacity.
 
 ## Original Iteration 2 Backlog
 
