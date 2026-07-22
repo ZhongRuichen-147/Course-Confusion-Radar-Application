@@ -36,6 +36,7 @@ const message = document.getElementById("message");
 const clearReportsButton = document.getElementById("clearReports");
 const dashboard = document.getElementById("dashboard");
 const sortByInput = document.getElementById("sortBy");
+const filterTopicInput = document.getElementById("filterTopic");
 
 async function getReports() {
     const q = query(reportsCollection, orderBy("createdAt", "desc"));
@@ -247,17 +248,27 @@ function sortReports(reports, sortBy) {
     return sorted;
 }
 
+function filterReports(reports, topic) {
+    if (!topic || topic === "all") {
+        return [...reports];
+    }
+    return reports.filter((report) => report.topic === topic);
+}
+
 async function renderReports() {
     const reports = await getReports();
     renderDashboard(reports);
 
-    const visibleReports = sortReports(reports, sortByInput.value);
+    const filtered = filterReports(reports, filterTopicInput.value);
+    const visibleReports = sortReports(filtered, sortByInput.value);
     reportsList.innerHTML = "";
 
     if (visibleReports.length === 0) {
         const emptyMessage = document.createElement("p");
         emptyMessage.className = "empty-message";
-        emptyMessage.textContent = "No confusion reports have been submitted yet.";
+        emptyMessage.textContent = reports.length === 0
+            ? "No confusion reports have been submitted yet."
+            : "No reports match the selected topic.";
         reportsList.appendChild(emptyMessage);
         return;
     }
@@ -270,5 +281,6 @@ async function renderReports() {
 reportForm.addEventListener("submit", submitReport);
 clearReportsButton.addEventListener("click", clearReports);
 sortByInput.addEventListener("change", renderReports);
+filterTopicInput.addEventListener("change", renderReports);
 
 renderReports();
