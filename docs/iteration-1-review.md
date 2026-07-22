@@ -24,9 +24,10 @@ No Iteration 1 user stories were left unfinished. All planned Iteration 1 work w
 |---|---|
 | US1-US4 | Done in Iteration 1 |
 | US5 | Done in Iteration 2 / Practical 4 |
-| US6-US10 | Todo |
+| US6, US7, US8, US10 | Done in Iteration 2 / Practical 6 |
+| US9 | Todo (Iteration 3) |
 
-Note: During Practical 6, US10 was moved from Iteration 3 into Iteration 2 based on the Iteration 1 velocity proxy. See `docs/iteration-2-backlog-update.md` for details.
+Note: During Practical 6, US10 was moved from Iteration 3 into Iteration 2 based on the Iteration 1 velocity proxy. See `docs/iteration-2-backlog-update.md` for details. The Iteration 2 user stories were then implemented during the Practical 6 execution; only US9 remains in Iteration 3.
 
 ## Actual Velocity
 

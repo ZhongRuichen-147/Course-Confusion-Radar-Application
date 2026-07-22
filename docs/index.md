@@ -26,16 +26,16 @@ effort estimate, its acceptance criteria, and the code that implements it.
 | [US3](user-stories/us3-view-existing-confusion-reports.md) | View Existing Confusion Reports | Iteration 1 | 2 days | Done |
 | [US4](user-stories/us4-vote-confused-too.md) | Vote "I'm Confused Too" | Iteration 1 | 2 days | Done |
 | [US5](user-stories/us5-view-report-status.md) | View Report Status | Iteration 2 | 1 day | Done |
+| [US6](user-stories/us6-lecturer-dashboard.md) | Lecturer Dashboard | Iteration 2 | 3 days | Done |
+| [US7](user-stories/us7-sort-reports-by-votes.md) | Sort Reports by Votes | Iteration 2 | 1 day | Done |
+| [US8](user-stories/us8-mark-report-resolved.md) | Mark Report as Resolved | Iteration 2 | 1 day | Done |
+| [US10](user-stories/us10-filter-reports-by-topic.md) | Filter Reports by Topic | Iteration 2 | 1 day | Done |
 
 ## Unfinished User Stories
 
 | ID | User Story | Iteration | Effort | Status |
 |---|---|---|---:|---|
-| US6 | Lecturer Dashboard | Iteration 2 | 3 days | Todo |
-| US7 | Sort Reports by Votes | Iteration 2 | 1 day | Todo |
-| US8 | Mark Report as Resolved | Iteration 2 | 1 day | Todo |
 | US9 | Manage Course Topics | Iteration 3 | 2 days | Todo |
-| US10 | Filter Reports by Topic | Iteration 2 | 1 day | Todo |
 
 ---
 

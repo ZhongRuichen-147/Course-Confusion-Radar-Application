@@ -278,7 +278,24 @@ The completed user story pages for US1-US5 remain available in `docs/user-storie
 
 ---
 
-## 13. Conclusion
+## 13. Practical 6: Iteration 2 Execution
+
+After the Iteration 2 planning adjustment, the remaining Iteration 2 user stories were implemented in priority order. Each user story was tracked through its GitHub Issues (`todo` -> `in-progress` -> `done`), implemented in its own commit, and verified on the live GitHub Pages site before its issues were closed.
+
+| US | Feature | Key functions | Issue |
+|---|---|---|---|
+| US6 | Lecturer dashboard of most confusing topics (report count and total votes per topic, ordered by votes) | `summarizeTopics()`, `renderDashboard()` | #11 |
+| US7 | Sort the report list by Newest or Most votes | `sortReports()` | #12 |
+| US8 | Lecturer control to set a report's status (Pending / Explained / Resolved), written to Firestore | `updateReportStatus()`, `createStatusControl()` | #13 |
+| US10 | Filter the report list by course topic | `filterReports()` | #15 |
+
+`renderReports()` now runs a clear pipeline: retrieve reports, build the dashboard from all reports, then filter and sort the list before rendering. The aggregation, sorting, and filtering logic are written as pure functions (`summarizeTopics`, `sortReports`, `filterReports`) so they can be unit-tested directly in Practical 7.
+
+Each feature was verified on the live site (application: https://zhongruichen-147.github.io/Course-Confusion-Radar-Application/). For US8, changing a report's status was confirmed to persist across a page reload before the value was restored. With US6, US7, US8, and US10 complete, the whole Iteration 2 backlog is delivered, and only US9 remains for Iteration 3.
+
+---
+
+## 14. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
@@ -290,4 +307,4 @@ In Practical 4, Iteration 2 began with US5 (report status display), broken down 
 
 In Practical 5, the project was reviewed for SRP and DRY, the completed and unfinished user stories were documented, and GitHub Issues were used to track both Practical 5 tasks and user stories with `todo`, `in-progress`, and `done` labels. Documentation pages were also added for the completed user stories, and Iteration 1 velocity was calculated using estimated effort-days as a proxy because the course material used for this review did not explicitly define a velocity formula.
 
-Practical 6 added an Iteration 2 planning adjustment based on the Iteration 1 velocity proxy, with US10 moved into Iteration 2 and US9 remaining in Iteration 3.
+Practical 6 added an Iteration 2 planning adjustment based on the Iteration 1 velocity proxy, with US10 moved into Iteration 2 and US9 remaining in Iteration 3. The Iteration 2 user stories (US6, US7, US8, and US10) were then implemented and verified on the live site, completing the Iteration 2 backlog and leaving only US9 for Iteration 3.

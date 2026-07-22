@@ -38,10 +38,10 @@ US5 remains listed in Iteration 2 because it belongs to this iteration and has a
 | ID  | User Story                                                                                                                 | Priority | Effort | Status |
 | --- | -------------------------------------------------------------------------------------------------------------------------- | -------: | -----: | ------ |
 | US5 | As a student, I want to see the status of a confusion report so that I know whether it is pending, explained, or resolved. |       20 |  1 day | Done   |
-| US6 | As a lecturer, I want to view the most confusing topics so that I can understand which areas need more explanation.        |       10 | 3 days | Todo   |
-| US7 | As a lecturer, I want to sort confusion reports by number of votes so that I can prioritize the most common problems.      |       20 |  1 day | Todo   |
-| US8 | As a lecturer, I want to mark a confusion report as resolved so that students know the issue has been addressed.           |       20 |  1 day | Todo   |
-| US10 | As a user, I want to filter confusion reports by topic so that I can find relevant issues quickly.                        |       30 |  1 day | Todo   |
+| US6 | As a lecturer, I want to view the most confusing topics so that I can understand which areas need more explanation.        |       10 | 3 days | Done   |
+| US7 | As a lecturer, I want to sort confusion reports by number of votes so that I can prioritize the most common problems.      |       20 |  1 day | Done   |
+| US8 | As a lecturer, I want to mark a confusion report as resolved so that students know the issue has been addressed.           |       20 |  1 day | Done   |
+| US10 | As a user, I want to filter confusion reports by topic so that I can find relevant issues quickly.                        |       30 |  1 day | Done   |
 
 ---
 
