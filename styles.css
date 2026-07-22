@@ -154,6 +154,28 @@ footer {
     border-bottom: none;
 }
 
+.status-control {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-control label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: normal;
+    color: #555;
+}
+
+.status-control select {
+    width: auto;
+    min-width: 130px;
+    font-size: 14px;
+    padding: 6px 8px;
+    margin: 0;
+}
+
 .status-badge {
     display: inline-block;
     padding: 2px 10px;

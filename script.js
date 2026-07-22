@@ -85,6 +85,16 @@ async function voteForReport(reportId) {
     }
 }
 
+async function updateReportStatus(reportId, newStatus) {
+    try {
+        const reportRef = doc(db, "reports", reportId);
+        await updateDoc(reportRef, { status: newStatus });
+        await renderReports();
+    } catch (error) {
+        console.error("Error updating status:", error);
+    }
+}
+
 async function clearReports() {
     try {
         const snapshot = await getDocs(reportsCollection);
@@ -113,6 +123,32 @@ function createStatusBadge(status) {
     statusBadge.className = `status-badge status-${statusValue.toLowerCase()}`;
     statusBadge.textContent = statusValue;
     return statusBadge;
+}
+
+function createStatusControl(report) {
+    const control = document.createElement("div");
+    control.className = "status-control";
+
+    const label = document.createElement("label");
+    label.htmlFor = `status-${report.id}`;
+    label.textContent = "Lecturer: set status";
+
+    const select = document.createElement("select");
+    select.id = `status-${report.id}`;
+    ["Pending", "Explained", "Resolved"].forEach((value) => {
+        const option = document.createElement("option");
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+    });
+    select.value = report.status || "Pending";
+    select.addEventListener("change", function () {
+        updateReportStatus(report.id, select.value);
+    });
+
+    control.appendChild(label);
+    control.appendChild(select);
+    return control;
 }
 
 function createReportCard(report) {
@@ -146,6 +182,7 @@ function createReportCard(report) {
     reportCard.appendChild(description);
     reportCard.appendChild(meta);
     reportCard.appendChild(voteButton);
+    reportCard.appendChild(createStatusControl(report));
     return reportCard;
 }
 
