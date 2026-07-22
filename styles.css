@@ -109,6 +109,34 @@ footer {
     padding: 24px;
 }
 
+.dashboard-hint {
+    color: #555;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e0e6ed;
+}
+
+.dashboard-table th {
+    background-color: #f0f3f8;
+    font-size: 14px;
+}
+
+.dashboard-table tr:last-child td {
+    border-bottom: none;
+}
+
 .status-badge {
     display: inline-block;
     padding: 2px 10px;

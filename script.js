@@ -34,6 +34,7 @@ const descriptionInput = document.getElementById("description");
 const reportsList = document.getElementById("reportsList");
 const message = document.getElementById("message");
 const clearReportsButton = document.getElementById("clearReports");
+const dashboard = document.getElementById("dashboard");
 
 async function getReports() {
     const q = query(reportsCollection, orderBy("createdAt", "desc"));
@@ -147,8 +148,62 @@ function createReportCard(report) {
     return reportCard;
 }
 
+function summarizeTopics(reports) {
+    const summaries = {};
+    reports.forEach((report) => {
+        const topic = report.topic || "Unknown";
+        if (!summaries[topic]) {
+            summaries[topic] = { topic: topic, reportCount: 0, totalVotes: 0 };
+        }
+        summaries[topic].reportCount += 1;
+        summaries[topic].totalVotes += report.votes || 0;
+    });
+    return Object.values(summaries).sort((a, b) =>
+        b.totalVotes - a.totalVotes ||
+        b.reportCount - a.reportCount ||
+        a.topic.localeCompare(b.topic)
+    );
+}
+
+function renderDashboard(reports) {
+    const summaries = summarizeTopics(reports);
+    dashboard.innerHTML = "";
+
+    if (summaries.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.className = "empty-message";
+        emptyMessage.textContent = "No confusion reports have been submitted yet.";
+        dashboard.appendChild(emptyMessage);
+        return;
+    }
+
+    const table = document.createElement("table");
+    table.className = "dashboard-table";
+
+    const headRow = document.createElement("tr");
+    ["Topic", "Reports", "Total Votes"].forEach((text) => {
+        const th = document.createElement("th");
+        th.textContent = text;
+        headRow.appendChild(th);
+    });
+    table.appendChild(headRow);
+
+    summaries.forEach((summary) => {
+        const row = document.createElement("tr");
+        [summary.topic, summary.reportCount, summary.totalVotes].forEach((value) => {
+            const cell = document.createElement("td");
+            cell.textContent = value;
+            row.appendChild(cell);
+        });
+        table.appendChild(row);
+    });
+
+    dashboard.appendChild(table);
+}
+
 async function renderReports() {
     const reports = await getReports();
+    renderDashboard(reports);
     reportsList.innerHTML = "";
 
     if (reports.length === 0) {
