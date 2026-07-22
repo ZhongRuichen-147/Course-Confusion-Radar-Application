@@ -35,6 +35,7 @@ const reportsList = document.getElementById("reportsList");
 const message = document.getElementById("message");
 const clearReportsButton = document.getElementById("clearReports");
 const dashboard = document.getElementById("dashboard");
+const sortByInput = document.getElementById("sortBy");
 
 async function getReports() {
     const q = query(reportsCollection, orderBy("createdAt", "desc"));
@@ -201,12 +202,22 @@ function renderDashboard(reports) {
     dashboard.appendChild(table);
 }
 
+function sortReports(reports, sortBy) {
+    const sorted = [...reports];
+    if (sortBy === "votes") {
+        sorted.sort((a, b) => (b.votes || 0) - (a.votes || 0));
+    }
+    return sorted;
+}
+
 async function renderReports() {
     const reports = await getReports();
     renderDashboard(reports);
+
+    const visibleReports = sortReports(reports, sortByInput.value);
     reportsList.innerHTML = "";
 
-    if (reports.length === 0) {
+    if (visibleReports.length === 0) {
         const emptyMessage = document.createElement("p");
         emptyMessage.className = "empty-message";
         emptyMessage.textContent = "No confusion reports have been submitted yet.";
@@ -214,12 +225,13 @@ async function renderReports() {
         return;
     }
 
-    reports.forEach((report) => {
+    visibleReports.forEach((report) => {
         reportsList.appendChild(createReportCard(report));
     });
 }
 
 reportForm.addEventListener("submit", submitReport);
 clearReportsButton.addEventListener("click", clearReports);
+sortByInput.addEventListener("change", renderReports);
 
 renderReports();

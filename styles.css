@@ -109,6 +109,23 @@ footer {
     padding: 24px;
 }
 
+.list-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+    margin-top: 8px;
+}
+
+.list-controls .control label {
+    margin-top: 0;
+}
+
+.list-controls .control select {
+    width: auto;
+    min-width: 160px;
+}
+
 .dashboard-hint {
     color: #555;
     font-size: 14px;
