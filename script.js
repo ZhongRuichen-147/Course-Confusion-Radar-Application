@@ -14,6 +14,14 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+import {
+    validateReport,
+    statusBadgeClass,
+    summarizeTopics,
+    sortReports,
+    filterReports
+} from "./logic.js";
+
 const firebaseConfig = {
     apiKey: "AIzaSyBiNSiWJZP4cKI2GzU9wINxUAzmU9Oi6BM",
     authDomain: "cp3407-800c5.firebaseapp.com",
@@ -54,8 +62,9 @@ async function submitReport(event) {
     const topic = topicInput.value;
     const description = descriptionInput.value.trim();
 
-    if (topic === "" || description === "") {
-        message.textContent = "Please select a topic and enter a confusion description.";
+    const validation = validateReport(topic, description);
+    if (!validation.valid) {
+        message.textContent = validation.message;
         return;
     }
 
@@ -121,7 +130,7 @@ function formatDate(createdAt) {
 function createStatusBadge(status) {
     const statusValue = status || "Pending";
     const statusBadge = document.createElement("span");
-    statusBadge.className = `status-badge status-${statusValue.toLowerCase()}`;
+    statusBadge.className = statusBadgeClass(statusValue);
     statusBadge.textContent = statusValue;
     return statusBadge;
 }
@@ -187,23 +196,6 @@ function createReportCard(report) {
     return reportCard;
 }
 
-function summarizeTopics(reports) {
-    const summaries = {};
-    reports.forEach((report) => {
-        const topic = report.topic || "Unknown";
-        if (!summaries[topic]) {
-            summaries[topic] = { topic: topic, reportCount: 0, totalVotes: 0 };
-        }
-        summaries[topic].reportCount += 1;
-        summaries[topic].totalVotes += report.votes || 0;
-    });
-    return Object.values(summaries).sort((a, b) =>
-        b.totalVotes - a.totalVotes ||
-        b.reportCount - a.reportCount ||
-        a.topic.localeCompare(b.topic)
-    );
-}
-
 function renderDashboard(reports) {
     const summaries = summarizeTopics(reports);
     dashboard.innerHTML = "";
@@ -238,21 +230,6 @@ function renderDashboard(reports) {
     });
 
     dashboard.appendChild(table);
-}
-
-function sortReports(reports, sortBy) {
-    const sorted = [...reports];
-    if (sortBy === "votes") {
-        sorted.sort((a, b) => (b.votes || 0) - (a.votes || 0));
-    }
-    return sorted;
-}
-
-function filterReports(reports, topic) {
-    if (!topic || topic === "all") {
-        return [...reports];
-    }
-    return reports.filter((report) => report.topic === topic);
 }
 
 async function renderReports() {
