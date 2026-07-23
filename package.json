@@ -1,0 +1,9 @@
+{
+  "name": "course-confusion-radar-application",
+  "version": "1.0.0",
+  "description": "CP3407 Advanced Software Engineering - Course Confusion Radar Application",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  }
+}
