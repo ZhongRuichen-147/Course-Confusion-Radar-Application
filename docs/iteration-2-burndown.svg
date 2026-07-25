@@ -1,0 +1,54 @@
+<svg viewBox="0 0 640 380" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+<rect x="0" y="0" width="640" height="380" fill="#ffffff"/>
+<line x1="60" y1="330.0" x2="610" y2="330.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="334.0" font-size="12" fill="#333" text-anchor="end">0</text>
+<line x1="60" y1="287.1" x2="610" y2="287.1" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="291.1" font-size="12" fill="#333" text-anchor="end">1</text>
+<line x1="60" y1="244.3" x2="610" y2="244.3" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="248.3" font-size="12" fill="#333" text-anchor="end">2</text>
+<line x1="60" y1="201.4" x2="610" y2="201.4" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="205.4" font-size="12" fill="#333" text-anchor="end">3</text>
+<line x1="60" y1="158.6" x2="610" y2="158.6" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="162.6" font-size="12" fill="#333" text-anchor="end">4</text>
+<line x1="60" y1="115.7" x2="610" y2="115.7" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="119.7" font-size="12" fill="#333" text-anchor="end">5</text>
+<line x1="60" y1="72.9" x2="610" y2="72.9" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="76.9" font-size="12" fill="#333" text-anchor="end">6</text>
+<line x1="60" y1="30.0" x2="610" y2="30.0" stroke="#e0e0e0" stroke-width="1"/>
+<text x="50" y="34.0" font-size="12" fill="#333" text-anchor="end">7</text>
+<text x="60.0" y="350" font-size="12" fill="#333" text-anchor="middle">Day 0</text>
+<text x="138.6" y="350" font-size="12" fill="#333" text-anchor="middle">Day 1</text>
+<text x="217.1" y="350" font-size="12" fill="#333" text-anchor="middle">Day 2</text>
+<text x="295.7" y="350" font-size="12" fill="#333" text-anchor="middle">Day 3</text>
+<text x="374.3" y="350" font-size="12" fill="#333" text-anchor="middle">Day 4</text>
+<text x="452.9" y="350" font-size="12" fill="#333" text-anchor="middle">Day 5</text>
+<text x="531.4" y="350" font-size="12" fill="#333" text-anchor="middle">Day 6</text>
+<text x="610.0" y="350" font-size="12" fill="#333" text-anchor="middle">Day 7</text>
+<line x1="60" y1="30" x2="60" y2="330" stroke="#333" stroke-width="1.5"/>
+<line x1="60" y1="330" x2="610" y2="330" stroke="#333" stroke-width="1.5"/>
+<text x="15" y="20" font-size="12" fill="#333">Remaining</text>
+<text x="335.0" y="372" font-size="12" fill="#333" text-anchor="middle">Iteration 2 Day</text>
+<polyline points="60.0,30.0 138.6,72.9 217.1,115.7 295.7,158.6 374.3,201.4 452.9,244.3 531.4,287.1 610.0,330.0" fill="none" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="6,4"/>
+<polyline points="60.0,30.0 138.6,72.9 217.1,72.9 295.7,72.9 374.3,72.9 452.9,72.9 531.4,72.9 610.0,330.0" fill="none" stroke="#e8710a" stroke-width="2.5"/>
+<circle cx="60.0" cy="30.0" r="3.5" fill="#1a73e8"/>
+<circle cx="138.6" cy="72.9" r="3.5" fill="#1a73e8"/>
+<circle cx="217.1" cy="115.7" r="3.5" fill="#1a73e8"/>
+<circle cx="295.7" cy="158.6" r="3.5" fill="#1a73e8"/>
+<circle cx="374.3" cy="201.4" r="3.5" fill="#1a73e8"/>
+<circle cx="452.9" cy="244.3" r="3.5" fill="#1a73e8"/>
+<circle cx="531.4" cy="287.1" r="3.5" fill="#1a73e8"/>
+<circle cx="610.0" cy="330.0" r="3.5" fill="#1a73e8"/>
+<circle cx="60.0" cy="30.0" r="3.5" fill="#e8710a"/>
+<circle cx="138.6" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="217.1" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="295.7" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="374.3" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="452.9" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="531.4" cy="72.9" r="3.5" fill="#e8710a"/>
+<circle cx="610.0" cy="330.0" r="3.5" fill="#e8710a"/>
+<line x1="70" y1="35" x2="94" y2="35" stroke="#1a73e8" stroke-width="2.5" stroke-dasharray="6,4"/>
+<text x="100" y="39" font-size="12" fill="#333">Planned</text>
+<line x1="180" y1="35" x2="204" y2="35" stroke="#e8710a" stroke-width="2.5"/>
+<text x="210" y="39" font-size="12" fill="#333">Actual</text>
+<text x="320.0" y="18" font-size="14" fill="#111" text-anchor="middle" font-weight="bold">Iteration 2 Burn Down</text>
+</svg>

@@ -310,7 +310,21 @@ Five user stories (US1/US2, US6, US7, US8/US5, US10) were selected and at least 
 
 ---
 
-## 15. Conclusion
+## 15. Practical 8: Iteration 3
+
+Practical 8 reflects on Iteration 2, updates the Iteration 3 backlog, and introduces Mock Object testing.
+
+The Iteration 2 review and actual velocity calculation are documented in `docs/iteration-2-review.md`: Iteration 2 delivered US5, US6, US7, US8, and US10 for a total of 7 effort-days, exactly matching the 7-day target set in `docs/iteration-2-backlog-update.md`.
+
+The Iteration 2 burn down graph is documented in `docs/iteration-2-burndown.md` and `docs/iteration-2-burndown.svg`. Unlike Iteration 1, the actual line stayed flat for most of the iteration and then dropped to zero in one concentrated Practical 6 session; the total effort still matched the estimate exactly.
+
+Using the Iteration 2 velocity proxy of 7 effort-days, the Iteration 3 backlog was reviewed in `docs/iteration-3-backlog-update.md`. Iteration 3's only remaining user story, US9 (2 effort-days), is well under that capacity, and there are no further backlog user stories to pull forward, so the backlog stays at US9 only; the remaining Iteration 3 capacity goes to the TDD and Mock Object work below.
+
+*(This section is updated as the remaining Practical 8 tasks — TDD for US9 and the Mock Object framework — are completed.)*
+
+---
+
+## 16. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
