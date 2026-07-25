@@ -295,7 +295,22 @@ Each feature was verified on the live site (application: https://zhongruichen-14
 
 ---
 
-## 14. Conclusion
+## 14. Practical 7: Test-Driven Development
+
+In Practical 7, the project's testing approach was documented and an automated test suite was added.
+
+The pure logic functions (`validateReport`, `statusBadgeClass`, `summarizeTopics`, `sortReports`, `filterReports`) were extracted from `script.js` into `logic.js` so they could be unit-tested without a browser or a database. `script.js` was updated to import them, and the live site was regression-tested to confirm the refactor did not break any feature.
+
+Five user stories (US1/US2, US6, US7, US8/US5, US10) were selected and at least three test cases were written for each, mapped to their acceptance criteria in `docs/user-stories/`. The tests use the Node built-in test runner (`node:test`), so the project needs no extra test dependency; they run with `npm test`.
+
+- Test plan and test case tables: `docs/test-plan.md`
+- Automated tests: `tests/logic.test.js` (23 tests, 5 user stories, all passing)
+
+`docs/test-plan.md` also records what is not automated yet: Firestore reads/writes and DOM rendering, which depend on a live database and browser and were instead covered by manual/integration testing on the live site. Automating the Firestore-dependent logic with a mock object is planned for Practical 8.
+
+---
+
+## 15. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
@@ -308,3 +323,5 @@ In Practical 4, Iteration 2 began with US5 (report status display), broken down 
 In Practical 5, the project was reviewed for SRP and DRY, the completed and unfinished user stories were documented, and GitHub Issues were used to track both Practical 5 tasks and user stories with `todo`, `in-progress`, and `done` labels. Documentation pages were also added for the completed user stories, and Iteration 1 velocity was calculated using estimated effort-days as a proxy because the course material used for this review did not explicitly define a velocity formula.
 
 Practical 6 added an Iteration 2 planning adjustment based on the Iteration 1 velocity proxy, with US10 moved into Iteration 2 and US9 remaining in Iteration 3. The Iteration 2 user stories (US6, US7, US8, and US10) were then implemented and verified on the live site, completing the Iteration 2 backlog and leaving only US9 for Iteration 3.
+
+In Practical 7, the pure logic was extracted into `logic.js` so it could be tested without a browser or a database, and an automated test suite was added covering at least three test cases for each of five user stories, using the Node built-in test runner so the project needs no extra test dependency. Testing was documented in `docs/test-plan.md`, which also records what still relies on manual and integration testing: Firestore reads/writes and DOM rendering.

@@ -50,6 +50,7 @@ effort estimate, its acceptance criteria, and the code that implements it.
 | [Iteration 2 Board](iteration-2-board.md) | Iteration 2 user stories and their current labels |
 | [Iteration 2 Backlog Update](iteration-2-backlog-update.md) | How the Iteration 1 velocity was used to adjust the Iteration 2 backlog |
 | [Iteration 2 Tasks](iteration-2-tasks.md) | Iteration 2 user stories broken down into estimated tasks |
+| [Test Plan](test-plan.md) | Testing approach, test cases per user story, and automated test results |
 
 ## Design and Quality
 
