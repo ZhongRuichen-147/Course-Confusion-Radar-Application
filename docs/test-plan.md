@@ -44,10 +44,12 @@ which runs `node --test` and discovers `tests/logic.test.js`.
 
 ## 2. Test Cases per User Story
 
-Five user stories were selected. Each has at least three test cases. The
-"Automated" column names the test in `tests/logic.test.js` that implements the
-case, and each case traces back to an acceptance criterion (AC) on the user
-story page in `docs/user-stories/`.
+Five user stories were selected for Practical 7. Each has at least three test
+cases. The "Automated" column names the test in `tests/logic.test.js` that
+implements the case, and each case traces back to an acceptance criterion (AC)
+on the user story page in `docs/user-stories/`. US9 was added in Practical 8,
+using the same approach: the acceptance criteria were written first and the
+tests were written from them before the functions existed (TDD).
 
 ### US1 Submit Anonymous Confusion Report (also covers US2 Select Course Topic)
 Function under test: `validateReport(topic, description)`
@@ -102,7 +104,26 @@ Function under test: `filterReports(reports, topic)`
 | 4 | Empty filter value | Behaves like "all" | yes |
 | 5 | Filter any list | The original array is not modified | yes |
 
-**Total: 23 automated test cases across 5 user stories, all passing.**
+### US9 Manage Course Topics (added in Practical 8)
+Functions under test: `addTopic(topics, name)`, `removeTopic(topics, name)`
+
+These tests were written before the functions were implemented, following the
+Practical 8 instruction to use the user story and its acceptance criteria
+(`docs/user-stories/us9-manage-course-topics.md`) as the TDD test
+specification.
+
+| # | Test case | Expected result | Automated |
+|---|---|---|---|
+| 1 | Add a valid new topic | Added to the list (AC9.2) | yes |
+| 2 | Add a topic that already exists (case-insensitive) | Rejected, list unchanged (AC9.3) | yes |
+| 3 | Add an empty or whitespace-only name | Rejected with "Please enter a topic name." (AC9.4) | yes |
+| 4 | Add a name with leading/trailing whitespace | Trimmed before adding (AC9.5) | yes |
+| 5 | Add any topic | The original array is not modified | yes |
+| 6 | Remove an existing topic | Removed from the list (AC9.6) | yes |
+| 7 | Remove a topic that is not in the list | List unchanged (AC9.7) | yes |
+| 8 | Remove any topic | The original array is not modified | yes |
+
+**Total: 31 automated test cases across 6 user stories, all passing.**
 
 ---
 
@@ -111,8 +132,8 @@ Function under test: `filterReports(reports, topic)`
 Running `npm test` (or `node --test`) produces:
 
 ```
-tests 23
-pass 23
+tests 31
+pass 31
 fail 0
 ```
 

@@ -35,7 +35,7 @@ effort estimate, its acceptance criteria, and the code that implements it.
 
 | ID | User Story | Iteration | Effort | Status |
 |---|---|---|---:|---|
-| US9 | Manage Course Topics | Iteration 3 | 2 days | Todo |
+| [US9](user-stories/us9-manage-course-topics.md) | Manage Course Topics | Iteration 3 | 2 days | In Progress |
 
 ---
 

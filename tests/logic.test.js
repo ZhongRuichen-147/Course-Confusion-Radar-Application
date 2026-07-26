@@ -12,7 +12,9 @@ import {
     statusBadgeClass,
     summarizeTopics,
     sortReports,
-    filterReports
+    filterReports,
+    addTopic,
+    removeTopic
 } from "../logic.js";
 
 // -------------------------------------------------------------------------
@@ -175,4 +177,60 @@ test("US10 filterReports does not mutate its input", () => {
     const input = [{ id: "a", topic: "X" }, { id: "b", topic: "Y" }];
     filterReports(input, "X");
     assert.deepEqual(input.map((r) => r.id), ["a", "b"]);
+});
+
+// -------------------------------------------------------------------------
+// US9 Manage Course Topics
+// addTopic(topics, name) -> { valid, topics, message }
+// removeTopic(topics, name) -> new array
+// -------------------------------------------------------------------------
+
+test("US9 addTopic adds a valid new topic (AC9.2)", () => {
+    const result = addTopic(["Testing"], "GitHub");
+    assert.equal(result.valid, true);
+    assert.deepEqual(result.topics, ["Testing", "GitHub"]);
+    assert.equal(result.message, "");
+});
+
+test("US9 addTopic rejects a topic that already exists, case-insensitive (AC9.3)", () => {
+    const result = addTopic(["Testing"], "testing");
+    assert.equal(result.valid, false);
+    assert.deepEqual(result.topics, ["Testing"]);
+    assert.equal(result.message, '"testing" already exists.');
+});
+
+test("US9 addTopic rejects an empty or whitespace-only name (AC9.4)", () => {
+    const empty = addTopic(["Testing"], "");
+    assert.equal(empty.valid, false);
+    assert.equal(empty.message, "Please enter a topic name.");
+
+    const whitespace = addTopic(["Testing"], "   ");
+    assert.equal(whitespace.valid, false);
+    assert.deepEqual(whitespace.topics, ["Testing"]);
+});
+
+test("US9 addTopic trims whitespace before adding (AC9.5)", () => {
+    const result = addTopic(["Testing"], "  GitHub  ");
+    assert.equal(result.valid, true);
+    assert.deepEqual(result.topics, ["Testing", "GitHub"]);
+});
+
+test("US9 addTopic does not mutate its input", () => {
+    const input = ["Testing"];
+    addTopic(input, "GitHub");
+    assert.deepEqual(input, ["Testing"]);
+});
+
+test("US9 removeTopic removes an existing topic (AC9.6)", () => {
+    assert.deepEqual(removeTopic(["Testing", "GitHub"], "GitHub"), ["Testing"]);
+});
+
+test("US9 removeTopic leaves the list unchanged when the topic is not found (AC9.7)", () => {
+    assert.deepEqual(removeTopic(["Testing"], "GitHub"), ["Testing"]);
+});
+
+test("US9 removeTopic does not mutate its input", () => {
+    const input = ["Testing", "GitHub"];
+    removeTopic(input, "GitHub");
+    assert.deepEqual(input, ["Testing", "GitHub"]);
 });

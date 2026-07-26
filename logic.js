@@ -53,3 +53,19 @@ export function filterReports(reports, topic) {
     }
     return reports.filter((report) => report.topic === topic);
 }
+
+export function addTopic(topics, name) {
+    const trimmed = (name || "").trim();
+    if (trimmed === "") {
+        return { valid: false, topics, message: "Please enter a topic name." };
+    }
+    const exists = topics.some((topic) => topic.toLowerCase() === trimmed.toLowerCase());
+    if (exists) {
+        return { valid: false, topics, message: `"${trimmed}" already exists.` };
+    }
+    return { valid: true, topics: [...topics, trimmed], message: "" };
+}
+
+export function removeTopic(topics, name) {
+    return topics.filter((topic) => topic !== name);
+}
