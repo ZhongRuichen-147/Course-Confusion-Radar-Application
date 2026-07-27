@@ -1,26 +1,20 @@
 // Firebase v10 modular SDK (loaded from CDN)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-    getFirestore,
-    collection,
-    addDoc,
-    getDocs,
-    doc,
-    updateDoc,
-    deleteDoc,
-    increment,
-    query,
-    orderBy,
-    serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 import {
-    validateReport,
     statusBadgeClass,
     summarizeTopics,
     sortReports,
     filterReports
 } from "./logic.js";
+import { createFirestoreReportsRepository } from "./firestoreRepository.js";
+import {
+    submitReport as submitReportAction,
+    voteForReport as voteForReportAction,
+    updateReportStatus as updateReportStatusAction,
+    clearReports as clearReportsAction
+} from "./reportActions.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBiNSiWJZP4cKI2GzU9wINxUAzmU9Oi6BM",
@@ -33,7 +27,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const reportsCollection = collection(db, "reports");
+const reportsRepository = createFirestoreReportsRepository(db);
 
 // DOM elements
 const reportForm = document.getElementById("reportForm");
@@ -46,39 +40,19 @@ const dashboard = document.getElementById("dashboard");
 const sortByInput = document.getElementById("sortBy");
 const filterTopicInput = document.getElementById("filterTopic");
 
-async function getReports() {
-    const q = query(reportsCollection, orderBy("createdAt", "desc"));
-    const snapshot = await getDocs(q);
-    const reports = [];
-    snapshot.forEach((d) => {
-        reports.push({ id: d.id, ...d.data() });
-    });
-    return reports;
-}
-
 async function submitReport(event) {
     event.preventDefault();
 
     const topic = topicInput.value;
     const description = descriptionInput.value.trim();
 
-    const validation = validateReport(topic, description);
-    if (!validation.valid) {
-        message.textContent = validation.message;
-        return;
-    }
-
     try {
-        await addDoc(reportsCollection, {
-            topic: topic,
-            description: description,
-            votes: 0,
-            status: "Pending",
-            createdAt: serverTimestamp()
-        });
-        reportForm.reset();
-        message.textContent = "Your confusion report was submitted anonymously.";
-        await renderReports();
+        const result = await submitReportAction(reportsRepository, topic, description);
+        message.textContent = result.message;
+        if (result.ok) {
+            reportForm.reset();
+            await renderReports();
+        }
     } catch (error) {
         console.error("Error submitting report:", error);
         message.textContent = "Could not submit the report. Please try again.";
@@ -87,8 +61,7 @@ async function submitReport(event) {
 
 async function voteForReport(reportId) {
     try {
-        const reportRef = doc(db, "reports", reportId);
-        await updateDoc(reportRef, { votes: increment(1) });
+        await voteForReportAction(reportsRepository, reportId);
         await renderReports();
     } catch (error) {
         console.error("Error voting:", error);
@@ -97,8 +70,7 @@ async function voteForReport(reportId) {
 
 async function updateReportStatus(reportId, newStatus) {
     try {
-        const reportRef = doc(db, "reports", reportId);
-        await updateDoc(reportRef, { status: newStatus });
+        await updateReportStatusAction(reportsRepository, reportId, newStatus);
         await renderReports();
     } catch (error) {
         console.error("Error updating status:", error);
@@ -107,12 +79,7 @@ async function updateReportStatus(reportId, newStatus) {
 
 async function clearReports() {
     try {
-        const snapshot = await getDocs(reportsCollection);
-        const deletions = [];
-        snapshot.forEach((d) => {
-            deletions.push(deleteDoc(doc(db, "reports", d.id)));
-        });
-        await Promise.all(deletions);
+        await clearReportsAction(reportsRepository);
         message.textContent = "Demo reports have been cleared.";
         await renderReports();
     } catch (error) {
@@ -233,7 +200,7 @@ function renderDashboard(reports) {
 }
 
 async function renderReports() {
-    const reports = await getReports();
+    const reports = await reportsRepository.getReports();
     renderDashboard(reports);
 
     const filtered = filterReports(reports, filterTopicInput.value);

@@ -54,6 +54,7 @@ effort estimate, its acceptance criteria, and the code that implements it.
 | [Iteration 2 Burn Down](iteration-2-burndown.md) | Planned against actual remaining work for Iteration 2 |
 | [Iteration 3 Backlog Update](iteration-3-backlog-update.md) | How the Iteration 2 velocity was used to adjust the Iteration 3 backlog |
 | [Test Plan](test-plan.md) | Testing approach, test cases per user story, and automated test results |
+| [Mock Object Notes](mock-object-notes.md) | Mock Object research and how mocks replaced Firestore/login in tests |
 
 ## Design and Quality
 

@@ -13,21 +13,27 @@ in `tests/logic.test.js`.
 
 ## 1. Testing Approach
 
-The application has two kinds of code, and each is tested in the way that suits
-it best:
+The application has three kinds of code, and each is tested in the way that
+suits it best:
 
 | Layer | Example | How it is tested |
 |---|---|---|
-| Pure logic | `validateReport`, `statusBadgeClass`, `summarizeTopics`, `sortReports`, `filterReports` in `logic.js` | Automated unit tests (Node built-in test runner) |
-| DOM and Firestore | rendering report cards, writing to Firestore, the live dashboard | Manual and integration testing on the live GitHub Pages site |
+| Pure logic | `validateReport`, `statusBadgeClass`, `summarizeTopics`, `sortReports`, `filterReports`, `addTopic`, `removeTopic` in `logic.js` | Automated unit tests (Node built-in test runner) |
+| Orchestration against a repository | `submitReport`, `voteForReport`, `updateReportStatus`, `clearReports` in `reportActions.js` | Automated unit tests against a Mock Object repository (Practical 8, see `docs/mock-object-notes.md`) |
+| DOM and the Firestore SDK itself | rendering report cards, `firestoreRepository.js`, the live dashboard | Manual and integration testing on the live GitHub Pages site |
 
 The pure logic was deliberately extracted into `logic.js` (Practical 7 refactor)
 precisely so that it could be unit-tested without a browser or a database. Each
 pure function takes plain data and returns plain data, so a test can call it
 directly and check the result.
 
-The parts that touch the DOM or Firestore cannot be tested as pure functions.
-They are verified by manual and integration testing (see section 4).
+The report actions were extracted into `reportActions.js` (Practical 8
+refactor) so they depend on a repository interface instead of the Firestore
+SDK directly, letting a Mock Object stand in for Firestore in tests.
+
+The parts that touch the DOM or the Firestore SDK itself cannot be tested as
+pure functions. They are verified by manual and integration testing (see
+section 4).
 
 ### Test framework
 The automated tests use the **Node built-in test runner** (`node:test` with
@@ -165,11 +171,17 @@ The US5 status states also have a documented manual test in
 
 ## 5. What Is Not Automated (and Why)
 
-- **Firestore reads and writes** are not unit-tested because they depend on the
-  live database and network. They are covered by the manual/integration checks
-  above. A future improvement (Practical 8) is to use a mock object to simulate
-  Firestore so these paths can be tested automatically.
+- **The Firestore SDK calls themselves** (`firestoreRepository.js`) are not
+  unit-tested, because they depend on the live database and network. They are
+  covered by the manual/integration checks above.
 - **DOM rendering** (building cards, the dashboard table) is not unit-tested
   because it depends on the browser DOM. The rendering functions were kept thin
   and delegate their decisions to the tested pure functions, so most of the risk
   is already covered by the unit tests.
+
+Practical 7 also listed `submitReport`, `voteForReport`, `updateReportStatus`,
+and `clearReports` here, because they called the Firestore SDK directly. In
+Practical 8 those calls were extracted behind a repository interface
+(`firestoreRepository.js` / `reportActions.js`) and are now automatically
+tested against a Mock Object repository instead of a live database — see
+`docs/mock-object-notes.md` and `tests/reportActions.test.js`.
