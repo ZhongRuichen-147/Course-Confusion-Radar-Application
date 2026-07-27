@@ -328,7 +328,19 @@ US9 was then finished using the same repository pattern: `createFirestoreTopicsR
 
 ---
 
-## 16. Conclusion
+## 16. Practical 9: Bug Tracking and System Testing
+
+Practical 9 examines and adjusts how bugs/errors are reported and tracked, and writes a system testing plan for the Week 10 demo.
+
+The bug-tracking review is documented in `docs/bug-tracking.md`. Reviewing every issue found exactly one genuine defect, #51 (the Firestore test-mode rules expiring), which had only been labelled `done` — indistinguishable from ordinary planned tasks. It was retroactively given the repository's `bug` label, and going forward any defect found during system testing gets the `bug` label in addition to the usual `todo`/`in-progress`/`done` lifecycle label. GitHub Projects and Pull Requests were both considered as alternative or additional tools and are documented with the reasoning for not adopting them at this project's current scale; GitHub Issues with labels remains the tracking tool, and the user-story GitHub pages remain the definition of "done" that bugs and tasks are checked against, meeting the Practical 9 minimum requirement.
+
+`docs/system-testing-plan.md` is a system-level manual test script for the Week 10 demo, separate from `docs/test-plan.md` (automated unit and Mock Object tests). It covers a pre-demo checklist, a walkthrough script exercising all ten user stories in order on the live site, known limitations to mention during the demo, and a fallback plan if the live site or network is unavailable.
+
+Task 5 of Practical 9 asks for the instructor (Dasheng LIU, dasheng.liu@jcu.edu.au) to be added as a collaborator on the GitHub repository. This is a manual step performed by the repository owner via GitHub Settings > Collaborators and teams, not part of the codebase.
+
+---
+
+## 17. Conclusion
 
 In Practical 2, target users were interviewed to collect feedback on the requirements for the Course Confusion Radar Application. The feedback showed that students need a private and simple way to report confusing course topics, while lecturers need a clear dashboard to identify common learning difficulties. These requirements were converted into user stories with titles, short descriptions, priorities, and estimated effort in days.
 
@@ -347,3 +359,5 @@ In Practical 7, the pure logic was extracted into `logic.js` so it could be test
 In Practical 8, Iteration 2 was reflected on and its actual velocity (7 effort-days) was calculated and used to confirm the Iteration 3 backlog stays at US9 only. The US9 acceptance criteria were written first and used as a TDD test specification, following the same red-green process as the pure logic functions. Firestore access for `submitReport`, `voteForReport`, `updateReportStatus`, and `clearReports` was then extracted behind a repository interface so a Mock Object could stand in for Firestore in tests, closing the gap Practical 7 had recorded, and a small separate module demonstrates mocking a login process as the task sheet suggested.
 
 US9 was then completed using the same repository/Mock Object pattern for a new `topics` Firestore collection, plus a "Manage Course Topics" admin panel, which also removed a hardcoded topic list that had been duplicated across the report form and the filter control. All ten user stories in the Milestone 1 Plan are now done. The automated test count grew from 31 to 47, all passing.
+
+In Practical 9, the bug-tracking approach was reviewed and adjusted: one genuine defect (#51) had been indistinguishable from planned tasks in the issue list, so it was labelled `bug` and that label is now used for every defect found going forward, documented in `docs/bug-tracking.md` alongside the tools considered as alternatives. A system-level testing plan for the Week 10 demo was written in `docs/system-testing-plan.md`, covering a pre-demo checklist, a walkthrough of all ten user stories, known limitations, and a fallback plan.

@@ -53,6 +53,8 @@ complete; there are no unfinished user stories.
 | [Iteration 3 Backlog Update](iteration-3-backlog-update.md) | How the Iteration 2 velocity was used to adjust the Iteration 3 backlog |
 | [Test Plan](test-plan.md) | Testing approach, test cases per user story, and automated test results |
 | [Mock Object Notes](mock-object-notes.md) | Mock Object research and how mocks replaced Firestore/login in tests |
+| [Bug Tracking](bug-tracking.md) | How bugs/errors are reported and tracked, and the tools considered |
+| [System Testing Plan](system-testing-plan.md) | System-level demo walkthrough script for the Week 10 demo |
 
 ## Design and Quality
 
