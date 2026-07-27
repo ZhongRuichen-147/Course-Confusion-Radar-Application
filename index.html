@@ -20,11 +20,6 @@
                 <label for="topic">Course Topic</label>
                 <select id="topic" required>
                     <option value="">Select a topic</option>
-                    <option value="Requirements">Requirements</option>
-                    <option value="User Stories">User Stories</option>
-                    <option value="Agile Iteration">Agile Iteration</option>
-                    <option value="Testing">Testing</option>
-                    <option value="GitHub">GitHub</option>
                 </select>
 
                 <label for="description">What is confusing?</label>
@@ -48,6 +43,22 @@
         </section>
 
         <section class="card">
+            <h2>Manage Course Topics</h2>
+            <p class="dashboard-hint">Admin: add or remove the course topics offered in the report and filter forms.</p>
+
+            <form id="topicForm" class="topic-form">
+                <div>
+                    <label for="newTopic">New topic name</label>
+                    <input type="text" id="newTopic" placeholder="e.g. Version Control">
+                </div>
+                <button type="submit">Add Topic</button>
+            </form>
+            <p id="topicMessage" class="message"></p>
+
+            <ul id="topicList" class="topic-list"></ul>
+        </section>
+
+        <section class="card">
             <div class="section-header">
                 <h2>Existing Confusion Reports</h2>
                 <button id="clearReports" class="secondary-button" type="button">Clear Demo Data</button>
@@ -58,11 +69,6 @@
                     <label for="filterTopic">Filter by topic</label>
                     <select id="filterTopic">
                         <option value="all">All topics</option>
-                        <option value="Requirements">Requirements</option>
-                        <option value="User Stories">User Stories</option>
-                        <option value="Agile Iteration">Agile Iteration</option>
-                        <option value="Testing">Testing</option>
-                        <option value="GitHub">GitHub</option>
                     </select>
                 </div>
                 <div class="control">
@@ -79,7 +85,7 @@
     </main>
 
     <footer>
-        <p>Iteration 2 in progress - data is stored in a Firestore database.</p>
+        <p>All planned user stories complete - data is stored in a Firestore database.</p>
     </footer>
 
     <script type="module" src="script.js"></script>

@@ -30,12 +30,10 @@ effort estimate, its acceptance criteria, and the code that implements it.
 | [US7](user-stories/us7-sort-reports-by-votes.md) | Sort Reports by Votes | Iteration 2 | 1 day | Done |
 | [US8](user-stories/us8-mark-report-resolved.md) | Mark Report as Resolved | Iteration 2 | 1 day | Done |
 | [US10](user-stories/us10-filter-reports-by-topic.md) | Filter Reports by Topic | Iteration 2 | 1 day | Done |
+| [US9](user-stories/us9-manage-course-topics.md) | Manage Course Topics | Iteration 3 | 2 days | Done |
 
-## Unfinished User Stories
-
-| ID | User Story | Iteration | Effort | Status |
-|---|---|---|---:|---|
-| [US9](user-stories/us9-manage-course-topics.md) | Manage Course Topics | Iteration 3 | 2 days | In Progress |
+All ten user stories from the [Milestone 1 Plan](milestone-1-plan.md) are now
+complete; there are no unfinished user stories.
 
 ---
 

@@ -51,9 +51,9 @@ Iteration 3 focuses on lower-priority management features. US10 was moved into I
 
 | ID  | User Story                                                                                              | Priority | Effort | Status |
 | --- | ------------------------------------------------------------------------------------------------------- | -------: | -----: | ------ |
-| US9 | As an admin, I want to add and manage course topics so that confusion reports can be organized properly. |       30 | 2 days | Todo   |
+| US9 | As an admin, I want to add and manage course topics so that confusion reports can be organized properly. |       30 | 2 days | Done   |
 
-Iteration 3 now contains only US9 (2 effort-days), which is below the Iteration 1 velocity of 7 effort-days. This is because the current backlog is exhausted after the Iteration 2 adjustment. Any additional user stories identified later would be added to this iteration.
+Iteration 3 contained only US9 (2 effort-days), which is below the Iteration 1 velocity of 7 effort-days, because the backlog was exhausted after the Iteration 2 adjustment. US9 is now complete (see [`docs/user-stories/us9-manage-course-topics.md`](user-stories/us9-manage-course-topics.md)), so all ten user stories in this milestone are done.
 
 ---
 

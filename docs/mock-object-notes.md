@@ -59,10 +59,23 @@ referenced by `index.html` or `script.js`; it exists only to demonstrate the
 pattern, kept separate so it cannot be mistaken for a real feature of the
 live application.
 
+## Reused For: US9 Manage Course Topics
+
+The same repository/Mock Object pattern was reused, not copied and modified,
+when US9's Firestore persistence was built after this document was written:
+`createFirestoreTopicsRepository` (`firestoreRepository.js`) is the real
+implementation, `topicActions.js` depends only on the repository interface,
+and `tests/topicActions.test.js` tests it against
+`tests/mocks/mockTopicsRepository.js` instead of a live database. This is the
+same three-piece shape as the reports repository: a real Firestore
+implementation, an orchestration module that takes the repository as a
+parameter, and a mock for tests.
+
 ## Result
 
-| Before (Practical 7) | After (Practical 8) |
+| Before (Practical 7) | After (Practical 8 + US9) |
 |---|---|
 | `submitReport`, `voteForReport`, `updateReportStatus`, `clearReports` untested except manually on the live site | Tested with a Mock Object repository (`tests/reportActions.test.js`, 7 tests) |
+| US9 had no Firestore persistence | Tested with a Mock Object repository (`tests/topicActions.test.js`, 6 tests) |
 | No example of mocking a login/authentication dependency | `auth.js` + `tests/auth.test.js` demonstrate the pattern (3 tests) |
-| 31 automated tests | 41 automated tests, all passing (`npm test`) |
+| 31 automated tests | 47 automated tests, all passing (`npm test`) |

@@ -19,7 +19,7 @@ suits it best:
 | Layer | Example | How it is tested |
 |---|---|---|
 | Pure logic | `validateReport`, `statusBadgeClass`, `summarizeTopics`, `sortReports`, `filterReports`, `addTopic`, `removeTopic` in `logic.js` | Automated unit tests (Node built-in test runner) |
-| Orchestration against a repository | `submitReport`, `voteForReport`, `updateReportStatus`, `clearReports` in `reportActions.js` | Automated unit tests against a Mock Object repository (Practical 8, see `docs/mock-object-notes.md`) |
+| Orchestration against a repository | `submitReport`, `voteForReport`, `updateReportStatus`, `clearReports` in `reportActions.js`; `addTopicAction`, `removeTopicAction` in `topicActions.js` | Automated unit tests against a Mock Object repository (Practical 8, see `docs/mock-object-notes.md`) |
 | DOM and the Firestore SDK itself | rendering report cards, `firestoreRepository.js`, the live dashboard | Manual and integration testing on the live GitHub Pages site |
 
 The pure logic was deliberately extracted into `logic.js` (Practical 7 refactor)
@@ -129,7 +129,22 @@ specification.
 | 7 | Remove a topic that is not in the list | List unchanged (AC9.7) | yes |
 | 8 | Remove any topic | The original array is not modified | yes |
 
-**Total: 31 automated test cases across 6 user stories, all passing.**
+**Total: 31 pure-logic test cases across 6 user stories, all passing.**
+
+### Orchestration and Mock Object tests (added in Practical 8)
+
+These are not pure-function test cases against `logic.js`; they test the
+orchestration functions that call a repository (Firestore in production, a
+Mock Object in tests). See `docs/mock-object-notes.md` for the full
+explanation.
+
+| Test file | What it tests | Test count |
+|---|---|---|
+| `tests/reportActions.test.js` | `submitReport`, `voteForReport`, `updateReportStatus`, `clearReports` against a mock reports repository | 7 |
+| `tests/topicActions.test.js` | `addTopicAction`, `removeTopicAction` (US9) against a mock topics repository | 6 |
+| `tests/auth.test.js` | `login()` against a mock user repository (mock-login example, not wired into the app) | 3 |
+
+**Grand total: 47 automated test cases, all passing.**
 
 ---
 
@@ -138,8 +153,8 @@ specification.
 Running `npm test` (or `node --test`) produces:
 
 ```
-tests 31
-pass 31
+tests 47
+pass 47
 fail 0
 ```
 

@@ -14,6 +14,7 @@ import {
     increment,
     query,
     orderBy,
+    where,
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -49,6 +50,34 @@ export function createFirestoreReportsRepository(db) {
 
         async deleteReport(reportId) {
             await deleteDoc(doc(db, "reports", reportId));
+        }
+    };
+}
+
+export function createFirestoreTopicsRepository(db) {
+    const topicsCollection = collection(db, "topics");
+
+    return {
+        async getTopics() {
+            const q = query(topicsCollection, orderBy("name"));
+            const snapshot = await getDocs(q);
+            const topics = [];
+            snapshot.forEach((docSnapshot) => {
+                topics.push(docSnapshot.data().name);
+            });
+            return topics;
+        },
+
+        async addTopic(name) {
+            await addDoc(topicsCollection, { name, createdAt: serverTimestamp() });
+        },
+
+        async removeTopic(name) {
+            const q = query(topicsCollection, where("name", "==", name));
+            const snapshot = await getDocs(q);
+            await Promise.all(
+                snapshot.docs.map((docSnapshot) => deleteDoc(docSnapshot.ref))
+            );
         }
     };
 }

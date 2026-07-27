@@ -4,7 +4,7 @@
 As an admin, I want to add and manage course topics so that confusion reports can be organized properly.
 
 ## Status
-In Progress
+Done
 
 ## Priority and Effort
 Priority: 30
@@ -34,11 +34,35 @@ The topic list management is implemented as two pure functions in `logic.js`:
 matching the style of `filterReports`/`sortReports`. They are unit-tested in
 `tests/logic.test.js`.
 
-The admin UI (AC9.1) and Firestore-backed persistence of the topic list are
-implemented through the repository seam added for Mock Object testing later
-in Practical 8; this section is updated once that lands.
+Firestore persistence uses the same repository pattern introduced for Mock
+Object testing: `createFirestoreTopicsRepository` in `firestoreRepository.js`
+wraps a `topics` collection (`getTopics`/`addTopic`/`removeTopic`), and
+`addTopicAction`/`removeTopicAction` in `topicActions.js` call `addTopic`/
+`removeTopic` from `logic.js` for validation before writing. This orchestration
+is unit-tested against a Mock Object repository in `tests/topicActions.test.js`
+(`tests/mocks/mockTopicsRepository.js`), the same way `reportActions.js` is
+tested against a mock Firestore for reports.
+
+The admin panel (AC9.1) is the "Manage Course Topics" section in `index.html`:
+an add-topic form and a list of topics with a Remove button each, wired up in
+`script.js` (`renderTopics`, `addTopic`, `removeTopic`). The report form's
+topic dropdown and the report list's filter dropdown are now both populated
+from the same Firestore-backed topic list instead of a hardcoded, duplicated
+`<option>` list in each `<select>`.
+
+Removing a topic does not change the topic field already stored on existing
+reports; a report can still show a topic that has since been removed from the
+admin list. This is a known limitation, not covered by the acceptance
+criteria above.
 
 ## Related Files
 - `logic.js`
+- `topicActions.js`
+- `firestoreRepository.js`
+- `index.html`
+- `script.js`
+- `styles.css`
 - `tests/logic.test.js`
+- `tests/topicActions.test.js`
+- `tests/mocks/mockTopicsRepository.js`
 - `README.md`

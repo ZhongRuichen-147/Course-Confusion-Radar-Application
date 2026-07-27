@@ -8,13 +8,20 @@ import {
     sortReports,
     filterReports
 } from "./logic.js";
-import { createFirestoreReportsRepository } from "./firestoreRepository.js";
+import {
+    createFirestoreReportsRepository,
+    createFirestoreTopicsRepository
+} from "./firestoreRepository.js";
 import {
     submitReport as submitReportAction,
     voteForReport as voteForReportAction,
     updateReportStatus as updateReportStatusAction,
     clearReports as clearReportsAction
 } from "./reportActions.js";
+import {
+    addTopicAction,
+    removeTopicAction
+} from "./topicActions.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyBiNSiWJZP4cKI2GzU9wINxUAzmU9Oi6BM",
@@ -28,6 +35,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const reportsRepository = createFirestoreReportsRepository(db);
+const topicsRepository = createFirestoreTopicsRepository(db);
 
 // DOM elements
 const reportForm = document.getElementById("reportForm");
@@ -39,6 +47,10 @@ const clearReportsButton = document.getElementById("clearReports");
 const dashboard = document.getElementById("dashboard");
 const sortByInput = document.getElementById("sortBy");
 const filterTopicInput = document.getElementById("filterTopic");
+const topicForm = document.getElementById("topicForm");
+const newTopicInput = document.getElementById("newTopic");
+const topicMessage = document.getElementById("topicMessage");
+const topicList = document.getElementById("topicList");
 
 async function submitReport(event) {
     event.preventDefault();
@@ -84,6 +96,32 @@ async function clearReports() {
         await renderReports();
     } catch (error) {
         console.error("Error clearing reports:", error);
+    }
+}
+
+async function addTopic(event) {
+    event.preventDefault();
+    const name = newTopicInput.value;
+
+    try {
+        const result = await addTopicAction(topicsRepository, name);
+        topicMessage.textContent = result.valid ? "" : result.message;
+        if (result.valid) {
+            topicForm.reset();
+            await renderTopics();
+        }
+    } catch (error) {
+        console.error("Error adding topic:", error);
+        topicMessage.textContent = "Could not add the topic. Please try again.";
+    }
+}
+
+async function removeTopic(name) {
+    try {
+        await removeTopicAction(topicsRepository, name);
+        await renderTopics();
+    } catch (error) {
+        console.error("Error removing topic:", error);
     }
 }
 
@@ -199,6 +237,64 @@ function renderDashboard(reports) {
     dashboard.appendChild(table);
 }
 
+function renderTopicOptions(selectElement, topics, placeholderValue, placeholderText) {
+    const currentValue = selectElement.value;
+    selectElement.innerHTML = "";
+
+    const placeholder = document.createElement("option");
+    placeholder.value = placeholderValue;
+    placeholder.textContent = placeholderText;
+    selectElement.appendChild(placeholder);
+
+    topics.forEach((topic) => {
+        const option = document.createElement("option");
+        option.value = topic;
+        option.textContent = topic;
+        selectElement.appendChild(option);
+    });
+
+    if (currentValue === placeholderValue || topics.includes(currentValue)) {
+        selectElement.value = currentValue;
+    }
+}
+
+function renderTopicManagementList(topics) {
+    topicList.innerHTML = "";
+
+    if (topics.length === 0) {
+        const emptyMessage = document.createElement("li");
+        emptyMessage.className = "empty-message";
+        emptyMessage.textContent = "No course topics yet. Add one above.";
+        topicList.appendChild(emptyMessage);
+        return;
+    }
+
+    topics.forEach((topic) => {
+        const item = document.createElement("li");
+
+        const name = document.createElement("span");
+        name.textContent = topic;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", function () {
+            removeTopic(topic);
+        });
+
+        item.appendChild(name);
+        item.appendChild(removeButton);
+        topicList.appendChild(item);
+    });
+}
+
+async function renderTopics() {
+    const topics = await topicsRepository.getTopics();
+    renderTopicOptions(topicInput, topics, "", "Select a topic");
+    renderTopicOptions(filterTopicInput, topics, "all", "All topics");
+    renderTopicManagementList(topics);
+}
+
 async function renderReports() {
     const reports = await reportsRepository.getReports();
     renderDashboard(reports);
@@ -226,5 +322,7 @@ reportForm.addEventListener("submit", submitReport);
 clearReportsButton.addEventListener("click", clearReports);
 sortByInput.addEventListener("change", renderReports);
 filterTopicInput.addEventListener("change", renderReports);
+topicForm.addEventListener("submit", addTopic);
 
+renderTopics();
 renderReports();

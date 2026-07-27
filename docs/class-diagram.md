@@ -8,13 +8,20 @@ Course Confusion Radar Application
 
 The current implementation uses a functional JavaScript style rather than
 traditional OOP classes. The diagram below represents the data structure and
-responsibilities conceptually. `Report` models the data entity stored in
-Firestore. The functions in `script.js` are grouped into three conceptual
-responsibility groups: `ReportService` (Firestore data access and mutation),
-`ReportView` (building the report list DOM), and `DashboardService` (the
-lecturer dashboard aggregation added in Iteration 2). The pure functions
-`summarizeTopics`, `sortReports`, and `filterReports` take report arrays and
-return report arrays without touching the DOM or Firestore, which keeps them
+responsibilities conceptually, updated for the Practical 8 Mock Object
+refactor. `Report` and `Topic` model the data entities stored in Firestore.
+
+Firestore access now sits behind a repository interface, implemented for real
+by `ReportsRepository`/`TopicsRepository` (`firestoreRepository.js`).
+`ReportActions`/`TopicActions` (`reportActions.js`/`topicActions.js`) contain
+the orchestration logic and depend only on that repository interface, not on
+Firestore directly, which is what lets a Mock Object replace the repository in
+tests (see `docs/mock-object-notes.md`). `ReportView` (DOM rendering in
+`script.js`) calls the action modules instead of talking to Firestore
+directly. `DashboardService` is the lecturer dashboard aggregation added in
+Iteration 2. The pure functions `summarizeTopics`, `sortReports`,
+`filterReports`, `addTopic`, and `removeTopic` take plain data and return
+plain data without touching the DOM or Firestore, which keeps them
 unit-testable.
 
 ```mermaid
@@ -27,12 +34,35 @@ classDiagram
         +Timestamp createdAt
     }
 
-    class ReportService {
+    class Topic {
+        +string name
+        +Timestamp createdAt
+    }
+
+    class ReportsRepository {
         +getReports() Report[]
-        +submitReport(event) void
-        +voteForReport(reportId) void
-        +updateReportStatus(reportId, newStatus) void
-        +clearReports() void
+        +addReport(report) id
+        +incrementVotes(reportId) void
+        +setStatus(reportId, status) void
+        +deleteReport(reportId) void
+    }
+
+    class TopicsRepository {
+        +getTopics() string[]
+        +addTopic(name) void
+        +removeTopic(name) void
+    }
+
+    class ReportActions {
+        +submitReport(repository, topic, description) Result
+        +voteForReport(repository, reportId) void
+        +updateReportStatus(repository, reportId, status) void
+        +clearReports(repository) void
+    }
+
+    class TopicActions {
+        +addTopicAction(repository, name) Result
+        +removeTopicAction(repository, name) void
     }
 
     class ReportView {
@@ -40,6 +70,7 @@ classDiagram
         +createReportCard(report) Element
         +createStatusBadge(status) Element
         +createStatusControl(report) Element
+        +renderTopics() void
         +sortReports(reports, sortBy) Report[]
         +filterReports(reports, topic) Report[]
         +formatDate(createdAt) string
@@ -50,7 +81,11 @@ classDiagram
         +renderDashboard(reports) void
     }
 
-    ReportService "1" ..> "*" Report : reads and writes
-    ReportView ..> ReportService : calls to load and mutate
+    ReportsRepository "1" ..> "*" Report : reads and writes
+    TopicsRepository "1" ..> "*" Topic : reads and writes
+    ReportActions ..> ReportsRepository : depends on (real or mock)
+    TopicActions ..> TopicsRepository : depends on (real or mock)
+    ReportView ..> ReportActions : calls
+    ReportView ..> TopicActions : calls
     DashboardService ..> Report : summarises
 ```
