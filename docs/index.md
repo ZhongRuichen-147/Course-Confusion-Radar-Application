@@ -60,7 +60,9 @@ complete; there are no unfinished user stories.
 
 | Document | Purpose |
 |---|---|
-| [Class Diagram](class-diagram.md) | Data entity and service responsibilities |
+| [Class Diagram](class-diagram.md) | Data entity and service responsibilities, with an architecture diagram made in draw.io |
+| [Database Design](database-design.md) | The two Firestore collections, their fields, and the soft-reference relationship between them |
+| [Interface Design](interface-design.md) | Low-fidelity wireframe of the single-page UI, made in draw.io |
 | [Sequence Diagram: US5](sequence-diagram-us5.md) | Flow for displaying a report status badge |
 | [SRP and DRY Review](srp-dry-review.md) | Single Responsibility and Don't Repeat Yourself review, and the refactoring applied |
 | [US5 Manual Test](us5-manual-test.md) | Manual verification steps for the three report statuses |

@@ -4,12 +4,23 @@
 
 Course Confusion Radar Application
 
+## Architecture Diagram (online UML tool)
+
+Created with [diagrams.net (draw.io)](https://app.diagrams.net), an online UML
+diagramming tool, per the Practical rubric's design requirement. The native
+source file is [`architecture-diagram.drawio`](architecture-diagram.drawio)
+(open it at app.diagrams.net to edit).
+
+![Architecture diagram: Report and Topic entities, ReportsRepository/TopicsRepository, ReportActions/TopicActions, ReportView, and DashboardService, with arrows showing reads/writes, depends-on, calls, and summarises relationships](architecture-diagram.png)
+
 ## Notes
 
 The current implementation uses a functional JavaScript style rather than
-traditional OOP classes. The diagram below represents the data structure and
-responsibilities conceptually, updated for the Practical 8 Mock Object
-refactor. `Report` and `Topic` model the data entities stored in Firestore.
+traditional OOP classes. The diagram above (and the equivalent Mermaid version
+below, kept for quick viewing directly on GitHub) represents the data
+structure and responsibilities conceptually, updated for the Practical 8 Mock
+Object refactor. `Report` and `Topic` model the data entities stored in
+Firestore.
 
 Firestore access now sits behind a repository interface, implemented for real
 by `ReportsRepository`/`TopicsRepository` (`firestoreRepository.js`).
@@ -23,6 +34,8 @@ Iteration 2. The pure functions `summarizeTopics`, `sortReports`,
 `filterReports`, `addTopic`, and `removeTopic` take plain data and return
 plain data without touching the DOM or Firestore, which keeps them
 unit-testable.
+
+## Mermaid Version
 
 ```mermaid
 classDiagram
