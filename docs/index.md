@@ -66,3 +66,9 @@ complete; there are no unfinished user stories.
 | [Sequence Diagram: US5](sequence-diagram-us5.md) | Flow for displaying a report status badge |
 | [SRP and DRY Review](srp-dry-review.md) | Single Responsibility and Don't Repeat Yourself review, and the refactoring applied |
 | [US5 Manual Test](us5-manual-test.md) | Manual verification steps for the three report statuses |
+
+## Project Governance
+
+| Document | Purpose |
+|---|---|
+| [Declaration of AI-Generated Material](ai-declaration.md) | Scope of AI assistance used throughout the project, per the Assessment 3 requirement |
