@@ -66,6 +66,7 @@ complete; there are no unfinished user stories.
 | [Sequence Diagram: US5](sequence-diagram-us5.md) | Flow for displaying a report status badge |
 | [SRP and DRY Review](srp-dry-review.md) | Single Responsibility and Don't Repeat Yourself review, and the refactoring applied |
 | [US5 Manual Test](us5-manual-test.md) | Manual verification steps for the three report statuses |
+| [Development and Build Tools](development-tools.md) | Software development tools, build tools, and external libraries used, and how |
 
 ## Project Governance
 
